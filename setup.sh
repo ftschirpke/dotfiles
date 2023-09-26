@@ -8,6 +8,7 @@ fi
 echo "Your Neovim config is located at '~/.config/nvim'"
 
 cd ~/.config/nvim
+
 echo "--------------------------------------------------------------------------------------"
 echo "Installing Neovim"
 sudo snap install nvim --classic
@@ -29,7 +30,7 @@ echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.co
 sudo apt-get update
 sudo apt-get install nodejs -y
 
-if [[ -f "~/github_config.sh" ]];
+if [[ -f "$HOME/github_config.sh" ]];
 then
 	echo "--------------------------------------------------------------------------------------"
 	echo "Configuring this as a GitHub repository using the existing '~/github_config.sh'"
@@ -41,5 +42,6 @@ echo "REMEMBER:"
 echo "the errors in the beginning are expected! just press 'q'"
 echo "run ':PackerSync' to install neovim packages"
 echo "run ':Copilot setup' to setup GitHub Copilot"
+echo "restart neovim"
 echo "run ':MasonToolsInstall' to install all the mason tools listed in 'after/plugin/lsp.lua'"
 echo "                         after that you should have 17 mason tools installed"
