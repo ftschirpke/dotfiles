@@ -3,7 +3,6 @@ local lsp = require('lsp-zero')
 lsp.preset('recommended')
 
 local cmp = require('cmp')
-local cmp_action = require('lsp-zero').cmp_action()
 cmp.setup({
     window = {
         completion = cmp.config.window.bordered(),
@@ -39,4 +38,34 @@ require('mason-lspconfig').setup({
     handlers = {
         lsp.default_setup,
     },
+})
+
+require('mason-tool-installer').setup({
+    ensure_installed = {
+        -- Bash (shell)
+        'bash-language-server',
+        'beautysh',
+        -- C++ (C)
+        'clang-format',
+        'clangd',
+        'cmake-language-server',
+        'cmakelang',
+        'cpptools',
+        -- JSON
+        'json-lsp',
+        -- LaTeX
+        'bibtex-tidy',
+        'latexindent',
+        'texlab',
+        -- Lua
+        'lua-language-server',
+        'selene',
+        -- Markdown
+        'marksman',
+        'prettier',
+        -- Python
+        'autopep8',
+        'python-lsp-server',
+    },
+    run_on_start = false,
 })

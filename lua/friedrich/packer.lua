@@ -27,7 +27,7 @@ return require('packer').startup(function(use)
 
     use('tpope/vim-fugitive')
 
-    use {
+    use({
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v3.x',
         requires = {
@@ -41,7 +41,8 @@ return require('packer').startup(function(use)
             { 'hrsh7th/cmp-nvim-lsp' },
             { 'L3MON4D3/LuaSnip' },
         }
-    }
+    })
+    use('WhoIsSethDaniel/mason-tool-installer.nvim')
 
     use('github/copilot.vim')
 end)
