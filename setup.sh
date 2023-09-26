@@ -2,10 +2,10 @@ cd $(dirname $0)
 
 if [[ "$PWD" != "$HOME/.config/nvim" ]];
 then
-	echo "Error: Your Neovim config is not located at ~/.config/nvim"
+	echo "Error: Your Neovim config is not located at '~/.config/nvim'"
 	exit 1
 fi
-echo "Your Neovim config is located at ~/.config/nvim"
+echo "Your Neovim config is located at '~/.config/nvim'"
 
 cd ~/.config/nvim
 echo "--------------------------------------------------------------------------------------"
@@ -29,7 +29,7 @@ echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.co
 sudo apt-get update
 sudo apt-get install nodejs -y
 
-if [[ -f "~/github_config.sh ]];
+if [[ -f "~/github_config.sh" ]];
 then
 	echo "--------------------------------------------------------------------------------------"
 	echo "Configuring this as a GitHub repository using the existing '~/github_config.sh'"
@@ -38,5 +38,6 @@ fi
 
 echo "======================================================================================"
 echo "REMEMBER:"
+echo "the errors in the beginning are expected! just press 'q'"
 echo "run ':PackerSync' to install neovim packages"
 echo "run ':Copilot setup' to setup GitHub Copilot"
