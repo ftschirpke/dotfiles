@@ -1,9 +1,20 @@
-local lsp = require('lsp-zero')
+local lsp_zero = require('lsp-zero')
 
-lsp.preset('recommended')
+lsp_zero.preset('recommended')
+
+lsp_zero.configure('lua_ls', {
+    settings = {
+        Lua = {
+            diagnostics = {
+                globals = { 'vim' },
+            },
+        },
+    },
+})
 
 local cmp = require('cmp')
 local cmp_select = require('lsp-zero').cmp_action()
+
 cmp.setup({
     window = {
         completion = cmp.config.window.bordered(),
@@ -19,25 +30,41 @@ cmp.setup({
     })
 })
 
-lsp.on_attach(function(client, bufnr)
+lsp_zero.on_attach(function(client, bufnr)
+    lsp_zero.default_keymaps({ buffer = bufnr })
+
     local opts = { buffer = bufnr, remap = false }
 
     vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
     vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
     vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)
     vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
-    vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
 
-    lsp.buffer_autoformat()
+    vim.keymap.set({ 'n', 'x' }, '<leader>f', function()
+        vim.lsp.buf.format({ async = false, timeout_ms = 5000 })
+    end, opts)
 end)
 
-lsp.setup()
+lsp_zero.format_on_save({
+    format_opts = {
+        async = false,
+        timeout_ms = 5000,
+    },
+    servers = {
+        ['clangd'] = { 'c', 'cpp' },
+        ['lua_ls'] = { 'lua' },
+        --['pylsp'] = { 'py' },
+        ['texlab'] = { 'tex', 'bib' },
+    },
+})
+
+lsp_zero.setup()
 
 require('mason').setup({})
 require('mason-lspconfig').setup({
     ensure_installed = {},
     handlers = {
-        lsp.default_setup,
+        lsp_zero.default_setup,
     },
 })
 
@@ -52,7 +79,7 @@ require('mason-tool-installer').setup({
         'cmake-language-server',
         'cpptools',
         -- JSON
-        'json-lsp',
+        'json-lsp_zero',
         -- LaTeX
         'bibtex-tidy',
         'latexindent',
@@ -65,7 +92,7 @@ require('mason-tool-installer').setup({
         'prettier',
         -- Python
         'autopep8',
-        'python-lsp-server',
+        'python-lsp_zero-server',
     },
     run_on_start = false,
 })
