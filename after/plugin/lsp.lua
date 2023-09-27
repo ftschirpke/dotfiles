@@ -3,6 +3,7 @@ local lsp = require('lsp-zero')
 lsp.preset('recommended')
 
 local cmp = require('cmp')
+local cmp_select = require('lsp-zero').cmp_action()
 cmp.setup({
     window = {
         completion = cmp.config.window.bordered(),
@@ -49,7 +50,6 @@ require('mason-tool-installer').setup({
         'clang-format',
         'clangd',
         'cmake-language-server',
-        'cmakelang',
         'cpptools',
         -- JSON
         'json-lsp',
