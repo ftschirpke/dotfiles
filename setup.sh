@@ -37,6 +37,13 @@ then
 	bash ~/github_config.sh
 fi
 
+echo "--------------------------------------------------------------------------------------"
+echo "Creating symlinks for lsp configs"
+for file in $(find lsp_configs -mindepth 1 -maxdepth 1 -type f -printf '%P\n'); do
+    echo $file
+    ln -s ~/.config/nvim/lsp_configs/$file ~/.config/$file
+done
+
 echo "======================================================================================"
 echo "REMEMBER:"
 echo "the errors in the beginning are expected! just press 'q'"
