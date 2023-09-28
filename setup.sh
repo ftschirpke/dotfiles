@@ -17,6 +17,11 @@ echo "--------------------------------------------------------------------------
 echo "Installing Tmux Plugin Manager"
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
+echo "--------------------------------------------------------------------------------------"
+echo "Installing fzf for fuzzy finding"
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install
+
 if [[ -f "$HOME/github_config.sh" ]];
 then
 	echo "--------------------------------------------------------------------------------------"
@@ -24,4 +29,7 @@ then
 	bash ~/github_config.sh
 fi
 
+echo "======================================================================================"
+echo "REMEMBER:"
+echo "add ~/.config/tmux/scripts to your PATH"
 

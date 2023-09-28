@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+name=$(basename "$0")
+dir=~/shk-leser/synthetic_benchmarks
+echo "Starting tmux session $name"
+window1="shk-root"
+tmux new-session -d -s "$name" -n $window1 -c ~/shk-leser
+tmux send-keys -t $name:$window1 "git status" Enter
+
+window2="sybe-bash"
+tmux new-window -d -t $name:2 -n $window2 -c $dir
+
+window3="sybe-nvim"
+tmux new-window -d -t $name:3 -n $window3 -c $dir
+tmux send-keys -t $name:3 "nvim ." Enter
+
+window4="wfc-nvim"
+tmux new-window -d -t $name:4 -n $window4 -c $dir/wfcommons
+tmux send-keys -t $name:4 "nvim ." Enter
+
+window5="wfc-git"
+tmux new-window -d -t $name:5 -n $window5 -c $dir/wfcommons
+tmux send-keys -t $name:5 "git status" Enter
+
+tmux_switch_session $name

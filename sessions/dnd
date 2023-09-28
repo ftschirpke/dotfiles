@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+name=$(basename "$0")
+dir=~/dndmanager
+echo "Starting tmux session $name"
+tmux new-session -d -s $name -n "bash" -c $dir
+
+window2="nvim"
+tmux new-window -d -t $name:2 -n $window2 -c $dir
+tmux send-keys -t $name:$window2 "nvim ." Enter
+
+window3="git"
+tmux new-window -d -t $name:3 -n $window3 -c $dir
+tmux send-keys -t $name:$window3 "git status" Enter
+
+window4="build"
+tmux new-window -d -t $name:4 -n $window4 -c $dir/build
+tmux send-keys -t $name:$window4 "cmake "
+
+tmux_switch_session $name

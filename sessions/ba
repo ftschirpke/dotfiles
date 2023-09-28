@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+name=$(basename "$0")
+dir=~/bachelor
+current_phase="expose"
+echo "Starting tmux session $name"
+tmux new-session -d -s $name -n "root" -c $dir
+
+window2=$current_phase
+tmux new-window -d -t $name:2 -n $window2 -c $dir/$current_phase
+
+window3="nvim"
+tmux new-window -d -t $name:3 -n $window3 -c $dir/$current_phase
+tmux send-keys -t $name:$window3 "nvim ." Enter
+
+window4="git"
+tmux new-window -d -t $name:4 -n $window4 -c $dir
+tmux send-keys -t $name:$window4 "git status" Enter
+
+window5="build"
+tmux new-window -d -t $name:5 -n $window5 -c $dir/$current_phase
+tmux send-keys -t $name:$window5 "latexmk -pdf"
+
+tmux_switch_session $name
