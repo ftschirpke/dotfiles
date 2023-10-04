@@ -9,17 +9,22 @@ tmux send-keys -t $name:$window1 "git status" Enter
 
 window2="sybe-bash"
 tmux new-window -d -t $name:2 -n $window2 -c $dir
+tmux send-keys -t $name:$window2 "source venv/bin/activate" Enter
 
 window3="sybe-nvim"
 tmux new-window -d -t $name:3 -n $window3 -c $dir
-tmux send-keys -t $name:3 "nvim ." Enter
+tmux send-keys -t $name:$window3 "nvim ." Enter
 
-window4="wfc-nvim"
+window4="wfc-bash"
 tmux new-window -d -t $name:4 -n $window4 -c $dir/wfcommons
-tmux send-keys -t $name:4 "nvim ." Enter
+tmux send-keys -t $name:$window4 "source ../venv/bin/activate" Enter
 
-window5="wfc-git"
+window5="wfc-nvim"
 tmux new-window -d -t $name:5 -n $window5 -c $dir/wfcommons
-tmux send-keys -t $name:5 "git status" Enter
+tmux send-keys -t $name:$window5 "nvim ." Enter
+
+window6="wfc-git"
+tmux new-window -d -t $name:6 -n $window6 -c $dir/wfcommons
+tmux send-keys -t $name:$window6 "git status" Enter
 
 tmux_switch_session $name

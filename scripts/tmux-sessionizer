@@ -68,6 +68,6 @@ else
     elif [[ -f "$sessions_dir/$selected" ]]; then
         start_custom_or_attach $selected
     else
-        start_or_attach ~/$selected
+        start_or_attach $selected
     fi
 fi 
