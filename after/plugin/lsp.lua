@@ -39,6 +39,7 @@ lsp_zero.on_attach(function(client, bufnr)
     vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
     vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)
     vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
+    vim.keymap.set("n", "gr", function() vim.lsp.buf.references() end, opts)
 
     vim.keymap.set({ 'n', 'x' }, '<leader>f', function()
         vim.lsp.buf.format({ async = false, timeout_ms = 5000 })
