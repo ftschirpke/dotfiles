@@ -13,6 +13,7 @@ tmux send-keys -t $name:$window2 "source venv/bin/activate" Enter
 
 window3="sybe-nvim"
 tmux new-window -d -t $name:3 -n $window3 -c $dir
+tmux send-keys -t $name:$window3 "source venv/bin/activate" Enter
 tmux send-keys -t $name:$window3 "nvim ." Enter
 
 window4="wfc-bash"
@@ -21,6 +22,7 @@ tmux send-keys -t $name:$window4 "source ../venv/bin/activate" Enter
 
 window5="wfc-nvim"
 tmux new-window -d -t $name:5 -n $window5 -c $dir/wfcommons
+tmux send-keys -t $name:$window5 "source ../venv/bin/activate" Enter
 tmux send-keys -t $name:$window5 "nvim ." Enter
 
 window6="wfc-git"
