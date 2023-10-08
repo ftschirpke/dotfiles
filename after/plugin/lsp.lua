@@ -56,6 +56,7 @@ lsp_zero.format_on_save({
         ['lua_ls'] = { 'lua' },
         --['pylsp'] = { 'py' },
         ['texlab'] = { 'tex', 'bib' },
+        ['rust_analyzer'] = { 'rs', 'rust' },
     },
 })
 
@@ -66,6 +67,31 @@ require('mason-lspconfig').setup({
     ensure_installed = {},
     handlers = {
         lsp_zero.default_setup,
+        rust_analyzer = function()
+            require('lspconfig').rust_analyzer.setup({
+                on_attach = function(client)
+                    require('completion').on_attach(client)
+                end,
+                settings = {
+                    ["rust-analyzer"] = {
+                        imports = {
+                            granularity = {
+                                group = "module",
+                            },
+                            prefix = "self",
+                        },
+                        cargo = {
+                            buildScripts = {
+                                enable = true,
+                            },
+                        },
+                        procMacro = {
+                            enable = true
+                        },
+                    }
+                }
+            })
+        end,
     },
 })
 
