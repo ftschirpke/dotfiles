@@ -15,6 +15,7 @@ tmux send-keys -t $name:$window3 "nvim ." Enter
 
 window4="git"
 tmux new-window -d -t $name:4 -n $window4 -c $dir
+tmux send-keys -t $name:$window4 "git fetch -p" Enter
 tmux send-keys -t $name:$window4 "git status" Enter
 
 window5="build"

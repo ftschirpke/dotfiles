@@ -6,6 +6,7 @@ tmux_dir=~/.config/tmux
 echo "Starting tmux session $name"
 window1="nvim-bash"
 tmux new-session -d -s $name -n $window1 -c $nvim_dir
+tmux send-keys -t $name:$window1 "git fetch -p" Enter
 tmux send-keys -t $name:$window1 "git status" Enter
 
 window2="nvim-nvim"
@@ -14,6 +15,7 @@ tmux send-keys -t $name:$window2 "nvim ." Enter
 
 window3="tmux-bash"
 tmux new-window -d -t $name:3 -n $window3 -c $tmux_dir
+tmux send-keys -t $name:$window3 "git fetch -p" Enter
 tmux send-keys -t $name:$window3 "git status" Enter
 
 window4="tmux-nvim"

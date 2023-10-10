@@ -34,6 +34,7 @@ start() {
     git_result=$(ls -a $selected | grep -w .git)
     if [[ -n "$git_result" ]]; then
         tmux new-window -d -t $selected_name:3 -n $window3 -c $selected
+        tmux send-keys -t $selected_name:$window3 "git fetch -p" Enter
         tmux send-keys -t $selected_name:$window3 "git status" Enter
     fi
 

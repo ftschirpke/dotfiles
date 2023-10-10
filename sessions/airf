@@ -6,6 +6,7 @@ anna_dir=airflow_annaelle
 echo "Starting tmux session $name"
 window1="shk-root"
 tmux new-session -d -s "$name" -n $window1 -c ~/shk-leser
+tmux send-keys -t $name:$window1 "git fetch -p" Enter
 tmux send-keys -t $name:$window1 "git status" Enter
 
 window2="air-bash"
