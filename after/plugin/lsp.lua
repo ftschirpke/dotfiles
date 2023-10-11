@@ -107,7 +107,6 @@ require('mason-tool-installer').setup({
         'clang-format',
         'clangd',
         'cmake-language-server',
-        'cpptools',
         -- JSON
         'json-lsp_zero',
         -- LaTeX
