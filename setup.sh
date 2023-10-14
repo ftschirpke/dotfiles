@@ -19,6 +19,10 @@ git clone --depth 1 https://github.com/wbthomason/packer.nvim\
  ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 
 echo "--------------------------------------------------------------------------------------"
+echo "Installing ripgrep (required for Telescope)"
+sudo apt-get install ripgrep -y
+
+echo "--------------------------------------------------------------------------------------"
 echo "Installing nodejs (required for Copilot)"
 sudo apt-get remove nodejs -y
 sudo apt-get update
