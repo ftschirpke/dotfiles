@@ -112,6 +112,7 @@ require('mason-tool-installer').setup({
         -- LaTeX
         'bibtex-tidy',
         'latexindent',
+        'ltex',
         'texlab',
         -- Lua
         'lua-language-server',
