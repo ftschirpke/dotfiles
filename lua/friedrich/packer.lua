@@ -46,4 +46,6 @@ return require('packer').startup(function(use)
     use('WhoIsSethDaniel/mason-tool-installer.nvim')
 
     use('github/copilot.vim')
+
+    use('nvim-treesitter/nvim-treesitter-context')
 end)
