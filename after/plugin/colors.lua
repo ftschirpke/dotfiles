@@ -9,3 +9,5 @@ require('ayu').setup({
     },
 })
 vim.cmd [[colorscheme ayu-dark]]
+
+vim.api.nvim_set_hl(0, 'TreesitterContext', { fg = "#1B2733", bg = "#1B2733" })
