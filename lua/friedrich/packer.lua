@@ -47,5 +47,6 @@ return require('packer').startup(function(use)
 
     use('github/copilot.vim')
 
+    -- use('wellle/context.vim')
     use('nvim-treesitter/nvim-treesitter-context')
 end)
