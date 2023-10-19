@@ -108,11 +108,10 @@ require('mason-tool-installer').setup({
         'clangd',
         'cmake-language-server',
         -- JSON
-        'json-lsp_zero',
+        'json-lsp',
         -- LaTeX
         'bibtex-tidy',
         'latexindent',
-        --'ltex',
         'texlab',
         -- Lua
         'lua-language-server',
@@ -122,7 +121,7 @@ require('mason-tool-installer').setup({
         'prettier',
         -- Python
         'autopep8',
-        'python-lsp_zero-server',
+        'python-lsp-server',
     },
     run_on_start = false,
 })
