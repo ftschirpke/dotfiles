@@ -88,6 +88,9 @@ require('mason-lspconfig').setup({
                                 enable = true,
                             },
                         },
+                        checkOnSave = {
+                            command = "clippy",
+                        },
                         procMacro = {
                             enable = true
                         },
