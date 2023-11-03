@@ -16,7 +16,7 @@ tmux send-keys -t $name:$window3 "git status" Enter
 
 window4="build"
 tmux new-window -d -t $name:4 -n $window4 -c $dir/build
-tmux send-keys -t $name:$window4 "cmake "
+tmux send-keys -t $name:$window4 "cmake --build ."
 
 window5="content-nvim"
 tmux new-window -d -t $name:5 -n $window5 -c ~/dndcontent
