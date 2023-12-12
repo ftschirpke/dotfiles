@@ -2,7 +2,7 @@
 
 name=$(basename "$0")
 dir=~/bachelor
-current_phase="expose"
+current_phase="thesis"
 echo "Starting tmux session $name"
 tmux new-session -d -s $name -n "root" -c $dir
 
