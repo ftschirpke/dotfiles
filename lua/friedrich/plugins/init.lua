@@ -1,4 +1,4 @@
 return {
-    'nvim-lua/plenary.nvim',
-    'tpope/vim-commentary',
+    "nvim-lua/plenary.nvim",
+    "tpope/vim-commentary",
 }

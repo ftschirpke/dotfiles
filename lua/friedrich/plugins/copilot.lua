@@ -13,15 +13,13 @@ local copilot_toggle = function()
 end
 
 return {
-    {
-        'github/copilot.vim',
-        config = function()
-            vim.g.copilot_filetypes = {
-                tex = false,
-                latex = false,
-                plaintex = false,
-            }
-            vim.keymap.set("n", "<leader>ä", copilot_toggle)
-        end,
-    }
+    "github/copilot.vim",
+    config = function()
+        vim.g.copilot_filetypes = {
+            tex = false,
+            latex = false,
+            plaintex = false,
+        }
+        vim.keymap.set("n", "<leader>ä", copilot_toggle)
+    end,
 }

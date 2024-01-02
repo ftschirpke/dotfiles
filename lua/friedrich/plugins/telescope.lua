@@ -1,8 +1,8 @@
 return {
     {
-        'nvim-telescope/telescope.nvim',
-        tag = '0.1.5',
-        dependencies = { 'nvim-lua/plenary.nvim', 'nvim-tree/nvim-web-devicons' },
+        "nvim-telescope/telescope.nvim",
+        tag = "0.1.5",
+        dependencies = { "nvim-lua/plenary.nvim", "nvim-tree/nvim-web-devicons" },
         config = function()
             local trouble = require("trouble.providers.telescope")
             require("telescope").setup({
@@ -13,17 +13,17 @@ return {
                     },
                 },
             })
-            local builtin = require('telescope.builtin')
-            vim.keymap.set('n', '<leader>pf', builtin.find_files, {})
-            vim.keymap.set('n', '<C-p>', builtin.git_files, {})
-            vim.keymap.set('n', '<leader>ps', builtin.live_grep, {})
-            vim.keymap.set('n', '<leader>gr', builtin.lsp_references, {})
-            vim.keymap.set('n', '<leader>ds', builtin.diagnostics, {})
+            local builtin = require("telescope.builtin")
+            vim.keymap.set("n", "<leader>pf", builtin.find_files, {})
+            vim.keymap.set("n", "<C-p>", builtin.git_files, {})
+            vim.keymap.set("n", "<leader>ps", builtin.live_grep, {})
+            vim.keymap.set("n", "<leader>gr", builtin.lsp_references, {})
+            vim.keymap.set("n", "<leader>ds", builtin.diagnostics, {})
         end,
     },
     {
-        'nvim-telescope/telescope-fzf-native.nvim',
+        "nvim-telescope/telescope-fzf-native.nvim",
         build =
-        'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build'
+        "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build"
     }
 }
