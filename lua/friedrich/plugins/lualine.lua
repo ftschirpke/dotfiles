@@ -1,4 +1,4 @@
-require('lualine').setup({
+local lualine_options = {
     options = {
         icons_enabled = false,
         theme = 'ayu',
@@ -11,4 +11,12 @@ require('lualine').setup({
         lualine_y = { 'filetype' },
         lualine_z = { 'location', 'progress' },
     },
-})
+}
+
+return {
+    {
+        'nvim-lualine/lualine.nvim',
+        dependencies = { 'nvim-tree/nvim-web-devicons' },
+        opts = lualine_options,
+    },
+}

@@ -12,4 +12,16 @@ local copilot_toggle = function()
     print(copilot_status)
 end
 
-vim.keymap.set("n", "<leader>ä", copilot_toggle)
+return {
+    {
+        'github/copilot.vim',
+        config = function()
+            vim.g.copilot_filetypes = {
+                tex = false,
+                latex = false,
+                plaintex = false,
+            }
+            vim.keymap.set("n", "<leader>ä", copilot_toggle)
+        end,
+    }
+}

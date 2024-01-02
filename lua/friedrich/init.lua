@@ -1,5 +1,4 @@
 require("friedrich.set")
 require("friedrich.remap")
-require("friedrich.packer")
-require("friedrich.copilot_toggle")
+require("friedrich.lazy")
 require("friedrich.cpp_header_impl_switch")

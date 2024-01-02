@@ -14,16 +14,6 @@ echo "Installing Neovim"
 sudo snap install nvim --classic
 
 echo "--------------------------------------------------------------------------------------"
-echo "Cloning my package manager: 'packer.nvim'"
-if [[ -d ~/.local/share/nvim/site/pack/packer/start/packer.nvim ]];
-then
-    echo "packer.nvim is already installed"
-else
-    git clone --depth 1 https://github.com/wbthomason/packer.nvim\
-        ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-fi
-
-echo "--------------------------------------------------------------------------------------"
 echo "Installing ripgrep (required for Telescope)"
 sudo apt-get install ripgrep -y
 
@@ -75,7 +65,6 @@ done
 echo "======================================================================================"
 echo "REMEMBER:"
 echo "the errors in the beginning are expected! just press 'q'"
-echo "run ':PackerSync' to install neovim packages"
 echo "run ':Copilot setup' to setup GitHub Copilot"
 echo "restart neovim"
 echo "run ':MasonToolsInstall' to install all the mason tools listed in 'after/plugin/lsp.lua'"
