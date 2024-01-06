@@ -92,36 +92,37 @@ end
 local configure_mason = function()
     require("mason").setup({})
     require("mason-lspconfig").setup({
-        ensure_installed = {
-        },
         handlers = {
             require("lsp-zero").default_setup,
             rust_analyzer = rust_analyzer_handler,
         },
     })
     require("mason-tool-installer").setup({
-        -- Bash (shell)
-        "bash-language-server",
-        "beautysh",
-        -- C++ (C)
-        "clang-format",
-        "clangd",
-        "cmake-language-server",
-        -- JSON
-        "json-lsp",
-        -- LaTeX
-        "bibtex-tidy",
-        "latexindent",
-        "texlab",
-        -- Lua
-        "lua-language-server",
-        "selene",
-        -- Markdown
-        "marksman",
-        "prettier",
-        -- Python
-        "autopep8",
-        "python-lsp-server",
+        ensure_installed = {
+            -- Bash (shell)
+            "bash-language-server",
+            "beautysh",
+            -- C++ (C)
+            "clang-format",
+            "clangd",
+            "cmake-language-server",
+            -- JSON
+            "json-lsp",
+            -- LaTeX
+            "bibtex-tidy",
+            "latexindent",
+            "texlab",
+            -- Lua
+            "lua-language-server",
+            "selene",
+            -- Markdown
+            "marksman",
+            "prettier",
+            -- Python
+            "autopep8",
+            "python-lsp-server",
+        },
+        run_on_start = false,
     })
 end
 
