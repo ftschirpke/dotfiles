@@ -4,6 +4,9 @@ return {
     config = function()
         require("todo-comments").setup({
             signs = false,
+            highlight = {
+                multiline = false,
+            },
         })
         vim.keymap.set("n", "<leader>tq", "<cmd>TodoQuickFix<cr>")
         vim.keymap.set("n", "<leader>to", "<cmd>TodoTrouble<cr>")
