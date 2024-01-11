@@ -64,11 +64,12 @@ if [[ $# -eq 1 ]]; then
 else
     sessions_dir=~/.config/tmux/sessions
     selected=$( { find $sessions_dir -mindepth 1 -maxdepth 1 -type f -printf '%P\n' ; find ~ -mindepth 1 -maxdepth 2 -type d -not -path "*/.*" -not -path "*/_*" ; } | fzf)
-    if [[ -z "$selected" ]]; then
-        exit 1
-    elif [[ -f "$sessions_dir/$selected" ]]; then
-        start_custom_or_attach $selected
-    else
-        start_or_attach $selected
-    fi
 fi 
+
+if [[ -z "$selected" ]]; then
+    exit 1
+elif [[ -f "$sessions_dir/$selected" ]]; then
+    start_custom_or_attach $selected
+else
+    start_or_attach $selected
+fi
