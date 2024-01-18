@@ -52,6 +52,7 @@ local configure_lsp_zero = function()
             ["clangd"] = { "c", "cpp" },
             ["lua_ls"] = { "lua" },
             ["pylsp"] = { "py" },
+            ["gopls"] = { "go" },
             ["texlab"] = { "tex", "bib" },
             ["rust_analyzer"] = { "rs", "rust" },
         },
@@ -136,6 +137,7 @@ return {
             "neovim/nvim-lspconfig",
             "hrsh7th/nvim-cmp",
             "hrsh7th/cmp-nvim-lsp",
+            "L3MON4D3/LuaSnip",
         },
         config = function()
             configure_lsp_zero()
