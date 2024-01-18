@@ -3,6 +3,7 @@
 name=$(basename "$0")
 nvim_dir=~/.config/nvim
 tmux_dir=~/.config/tmux
+i3_dir=~/.config/i3
 echo "Starting tmux session $name"
 window1="nvim-bash"
 tmux new-session -d -s $name -n $window1 -c $nvim_dir
@@ -25,5 +26,15 @@ tmux send-keys -t $name:$window4 "nvim ." Enter
 window5="sessions"
 tmux new-window -d -t $name:5 -n $window5 -c $tmux_dir/sessions
 tmux send-keys -t $name:$window5 "nvim ." Enter
+
+# i3 if directory exists
+if [ -d "$i3_dir" ]; then
+    window6="i3-bash"
+    tmux new-window -d -t $name:6 -n $window6 -c $i3_dir
+
+    window7="i3-nvim"
+    tmux new-window -d -t $name:7 -n $window7 -c $i3_dir
+    tmux send-keys -t $name:$window7 "nvim ." Enter
+fi
 
 tmux_switch_session $name
