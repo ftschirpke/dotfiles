@@ -24,7 +24,9 @@ return {
     {
         "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate",
-        opts = treesitter_options,
+        config = function()
+            require("nvim-treesitter.configs").setup(treesitter_options)
+        end,
     },
     {
         "nvim-treesitter/nvim-treesitter-context",
