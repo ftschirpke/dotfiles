@@ -31,6 +31,8 @@ tmux send-keys -t $name:$window5 "nvim ." Enter
 if [ -d "$i3_dir" ]; then
     window6="i3-bash"
     tmux new-window -d -t $name:6 -n $window6 -c $i3_dir
+    tmux send-keys -t $name:$window3 "git fetch -p" Enter
+    tmux send-keys -t $name:$window3 "git status" Enter
 
     window7="i3-nvim"
     tmux new-window -d -t $name:7 -n $window7 -c $i3_dir
