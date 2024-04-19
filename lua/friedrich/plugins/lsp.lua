@@ -49,7 +49,7 @@ local configure_lsp_zero = function()
             timeout_ms = 5000,
         },
         servers = {
-            ["clangd"] = { "c", "cpp" },
+            ["clangd"] = { "cpp" },
             ["lua_ls"] = { "lua" },
             ["pylsp"] = { "py", "python" },
             ["gopls"] = { "go" },
