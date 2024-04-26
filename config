@@ -202,21 +202,15 @@ bindsym $mod+u exec ~/.screenlayout/shk-leser.sh
 
 exec ~/.screenlayout/single_screen.sh
 
-bindsym Ctrl+Mod1+o exec "/home/friedrich/tools/Obsidian-1.4.16.AppImage"
-bindsym Ctrl+Mod1+j exec "/home/friedrich/tools/JetBrains/idea-IU-222.4459.24/bin/idea.sh"
-bindsym Ctrl+Mod1+y exec "/home/friedrich/tools/JetBrains/pycharm-2023.2.2/bin/pycharm.sh"
-
 bindsym $mod+x [class="^(?!konsole).*"] kill
 
 for_window [class="konsole"] move to workspace $ws1
 for_window [class="Chromium"] move to workspace $ws2
 for_window [class="discord"] move to workspace $ws3
 for_window [class="Slack"] move to workspace $ws3
+for_window [class="Spotify"] move to workspace $ws3
 for_window [class="obsidian"] move to workspace $ws4
 for_window [class="thunderbird"] move to workspace $ws5
-for_window [class="Spotify"] move to workspace $ws3
 for_window [class="systemsettings"] move to workspace $ws10
 
 for_window [title="Picture-in-Picture"] sticky enable
-
-exec firefox
