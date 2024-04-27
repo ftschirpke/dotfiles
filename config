@@ -220,4 +220,3 @@ for_window [class="thunderbird"] move to workspace $ws5
 for_window [title="Picture-in-Picture"] sticky enable
 
 exec gnome-terminal
-exec firefox
