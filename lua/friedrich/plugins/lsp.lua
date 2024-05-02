@@ -41,6 +41,15 @@ local configure_lsp_zero = function()
         vim.keymap.set({ "n", "x" }, "<leader>f", function()
             vim.lsp.buf.format({ async = false, timeout_ms = 5000 })
         end, opts)
+
+        vim.keymap.set("n", "<leader>k", function()
+            vim.b.lsp_zero_enable_autoformat = not vim.b.lsp_zero_enable_autoformat
+            if vim.b.lsp_zero_enable_autoformat then
+                print("Autoformat enabled")
+            else
+                print("Autoformat disabled")
+            end
+        end, opts)
     end)
 
     lsp_zero.format_on_save({
