@@ -63,7 +63,11 @@ if [[ $# -eq 1 ]]; then
     selected=$(find ~ -mindepth 1 -maxdepth 3 -type d -name "*$selected*" | fzf)
 else
     sessions_dir=~/.config/tmux/sessions
-    selected=$( { find $sessions_dir -mindepth 1 -maxdepth 1 -type f -printf '%P\n' ; find ~ -mindepth 1 -maxdepth 3 -type d -not -path "*/.*" -not -path "*/_*" ; } | fzf)
+    selected=$( { 
+    find $sessions_dir -mindepth 1 -maxdepth 1 -type f -printf '%P\n' ; 
+    find ~ -mindepth 1 -maxdepth 3 -type d -not -path "*/.*" -not -path "*/_*" -not -path "$HOME/snap/*" ;
+    find ~/.config -mindepth 0 -maxdepth 1 -type d ;
+} | fzf)
 fi 
 
 if [[ -z "$selected" ]]; then
