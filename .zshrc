@@ -28,7 +28,8 @@ _comp_options+=(globdots)
 
 # zsh options
 unsetopt autocd beep
-unsetopt HIST_SAVE_NO_DUPS
+setopt HIST_SAVE_NO_DUPS
+setopt HIST_IGNORE_ALL_DUPS
 
 # zsh vim mode
 bindkey -v
