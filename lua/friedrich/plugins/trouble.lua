@@ -15,9 +15,5 @@ return {
             require("trouble").open("workspace_diagnostics")
             require("trouble").next(skip_jump)
         end)
-        vim.keymap.set("n", "<leader>dn", function()
-            require("trouble").open("workspace_diagnostics")
-            require("trouble").previous(skip_jump)
-        end)
     end,
 }
