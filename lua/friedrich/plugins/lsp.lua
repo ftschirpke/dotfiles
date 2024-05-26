@@ -47,6 +47,8 @@ local configure_lsp_zero = function()
                 print("Autoformat disabled")
             end
         end, opts)
+
+        vim.keymap.set("n", "<leader>h", ":ClangdSwitchSourceHeader<CR>", opts)
     end)
 
     lsp_zero.format_on_save({
