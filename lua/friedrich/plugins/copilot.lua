@@ -1,6 +1,6 @@
 local copilot_toggle = function()
     local copilot_status = vim.api.nvim_exec("Copilot status", true)
-    if copilot_status.find(copilot_status, "Enabled") then
+    if copilot_status.find(copilot_status, "Ready") then
         copilot_status = vim.api.nvim_exec("Copilot disable", true)
     elseif copilot_status.find(copilot_status, "Disabled") then
         copilot_status = vim.api.nvim_exec("Copilot enable", true)
