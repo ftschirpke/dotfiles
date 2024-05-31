@@ -1,25 +1,20 @@
 local copilot_toggle = function()
-    local copilot_status = vim.api.nvim_exec("Copilot status", true)
-    if copilot_status.find(copilot_status, "Ready") then
-        copilot_status = vim.api.nvim_exec("Copilot disable", true)
-    elseif copilot_status.find(copilot_status, "Disabled") then
-        copilot_status = vim.api.nvim_exec("Copilot enable", true)
+    vim.b.copilot_enabled = not vim.b.copilot_enabled
+    if vim.b.copilot_enabled then
+        print("Copilot enabled")
     else
-        print("Copilot status unknown: \"" .. copilot_status .. "\"")
-        return
+        print("Copilot disabled")
     end
-    copilot_status = vim.api.nvim_exec("Copilot status", true)
-    print(copilot_status)
 end
 
 return {
     "github/copilot.vim",
+    keys = "<leader>ä", -- keymap to activate the copilot plugin
     config = function()
         vim.g.copilot_filetypes = {
-            tex = false,
-            latex = false,
-            plaintex = false,
+            ['*'] = false,
         }
+        -- as soon as the plugin is loaded, the keymap toggles the plugin
         vim.keymap.set("n", "<leader>ä", copilot_toggle)
     end,
 }
