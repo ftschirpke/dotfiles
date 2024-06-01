@@ -44,20 +44,9 @@ source $ZDOTDIR/vim_cursor_mode.sh
 source "$HOME/manual-installs/zsh-autosuggestions/zsh-autosuggestions.zsh"
 bindkey '^z' autosuggest-accept
 
-# fpath
-fpath=("$HOME/manual-installs/zsh-completions/src" $fpath)
-
-
 # zsh colors
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-
-# manage ssh and gpg keys
-eval "$(keychain -q --agents gpg,ssh --eval ~/.ssh/github ~/.ssh/gitlab_hu ~/.ssh/tu_gitlab)"
-export GPG_TTY=$(tty)
 
 # === ADDED BY INSTALL SCRIPTS ===
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-. "$HOME/.cargo/env"
-
