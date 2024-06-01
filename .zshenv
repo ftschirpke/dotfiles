@@ -8,3 +8,5 @@ source $ZDOTDIR/path_additions.sh
 HISTFILE=~/.histfile
 HISTSIZE=10000
 SAVEHIST=10000
+
+. "$HOME/.cargo/env"
