@@ -1,7 +1,6 @@
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]
 then
     # this if-body only executes right after login
-    setleds -D +num # activate numlock
 
     startx # start GUI
 fi
