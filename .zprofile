@@ -1,11 +1,9 @@
+# manage ssh and gpg keys
+. ~/.config/zsh/evaluate_keys.sh
+export GPG_TTY=$(tty)
+
+# only execute right after login
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]
 then
-    # this if-body only executes right after login
-
     startx # start GUI
 fi
-
-
-# manage ssh and gpg keys
-eval "$(keychain -q --agents gpg,ssh --eval ~/.ssh/github ~/.ssh/hu_gitlab ~/.ssh/tu_gitlab)"
-export GPG_TTY=$(tty)
