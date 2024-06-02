@@ -182,7 +182,8 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3status
+    status_command i3status
+	font pango:JetBrainsMono Nerd Font 10
 }
 
 bindsym $mod+Ctrl+greater move workspace to output next
@@ -195,9 +196,8 @@ for_window [class="^.*"] border pixel 1
 for_window [class="^.*"] client.focused          #77dd77 #285577 #ffffff #2e9ef4   #285577
 
 bindsym Ctrl+Mod1+l exec "i3lock -c 000000"
-bindsym Ctrl+Mod1+period exec systemctl suspend
 
-bindsym $mod+z exec ~/.screenlayout/single_monitor.sh
+bindsym $mod+z exec ~/.screenlayout/single_screen.sh
 bindsym $mod+u exec ~/.screenlayout/home.sh
 
 exec ~/.screenlayout/home.sh
@@ -209,14 +209,14 @@ workspace $ws5 output DP-0
 
 workspace $ws3 output DP-2
 
-for_window [class="Gnome-terminal"] move to workspace $ws1
+for_window [class="alacritty"] move to workspace $ws1
 for_window [class="firefox"] move to workspace $ws2
+for_window [class="discord"] move to workspace $ws3
 for_window [class="Slack"] move to workspace $ws3
 for_window [class="Spotify"] move to workspace $ws3
-for_window [class="discord"] move to workspace $ws3
 for_window [class="obsidian"] move to workspace $ws4
 for_window [class="thunderbird"] move to workspace $ws5
 
 for_window [title="Picture-in-Picture"] sticky enable
 
-exec gnome-terminal
+exec alacritty
