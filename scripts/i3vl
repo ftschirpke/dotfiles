@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-i3 exec chromium
-i3 exec "/home/friedrich/tools/Obsidian-1.4.16.AppImage"
+i3 exec firefox
+i3 exec obsidian
