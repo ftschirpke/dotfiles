@@ -36,9 +36,7 @@ bindkey -v
 export KEYTIMEOUT=1
 source $ZDOTDIR/vim_cursor_mode.sh
 
-
 source $ZDOTDIR/aliases.sh
-source $ZDOTDIR/vim_cursor_mode.sh
 
 # zsh autosuggestions
 source "$HOME/manual-installs/zsh-autosuggestions/zsh-autosuggestions.zsh"
