@@ -71,24 +71,18 @@ end
 
 local rust_analyzer_handler = function()
     require("lspconfig").rust_analyzer.setup({
-        on_attach = function(client)
-            require("completion").on_attach(client)
-        end,
         settings = {
             ["rust-analyzer"] = {
-                imports = {
-                    granularity = {
-                        group = "module",
-                    },
-                    prefix = "self",
-                },
                 cargo = {
                     buildScripts = {
                         enable = true,
                     },
                 },
-                checkOnSave = {
+                checkOnSave = true,
+                check = {
+                    enable = true,
                     command = "clippy",
+                    features = "all",
                 },
                 procMacro = {
                     enable = true
