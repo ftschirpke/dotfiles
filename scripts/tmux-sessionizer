@@ -23,7 +23,7 @@ start() {
     selected_name=$2
     echo "start: $selected (name: $selected_name)"
 
-    window1="bash"
+    window1="$(basename $SHELL)"
     tmux new-session -d -s $selected_name -n $window1 -c $selected
 
     window2="nvim"
