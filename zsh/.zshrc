@@ -45,6 +45,8 @@ bindkey '^z' autosuggest-accept
 # zsh colors
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
+eval "$(direnv hook zsh)"
+
 # === ADDED BY INSTALL SCRIPTS ===
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
