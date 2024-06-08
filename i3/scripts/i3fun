@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+i3 exec spotify
+i3 exec discord

@@ -1,6 +1,29 @@
 *
 
+# machine-specific patches
+!duralumin.patch
+!thinkharder.patch
+
+# config directories that should be tracked:
+
 !alacritty
 !alacritty/*
+
+!i3
+!i3/*
+
 !i3status
 !i3status/*
+
+!nvim
+!nvim/*
+nvim/lazy-lock.json
+
+!zsh
+!zsh/*
+zsh/.zcompcache
+zsh/.zcompdump
+
+!tmux
+!tmux/*
+tmux/plugins/*

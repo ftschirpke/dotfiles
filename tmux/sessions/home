@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+name=$(basename "$0")
+echo "Starting tmux session $name"
+tmux new-session -d -s $name -n "bash" -c ~
+
+tmux_switch_session $name

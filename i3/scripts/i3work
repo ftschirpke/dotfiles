@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+i3 exec firefox
+i3 exec spotify
+i3 exec slack
+i3 exec obsidian
+i3 exec thunderbird
