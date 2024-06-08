@@ -4,3 +4,7 @@
 !alacritty/*
 !i3status
 !i3status/*
+
+!nvim
+!nvim/*
+nvim/lazy-lock.json
