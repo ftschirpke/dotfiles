@@ -1,0 +1,79 @@
+#!/usr/bin/env bash
+
+# inspired by https://github.com/ThePrimeagen/.dotfiles/blob/master/bin/.local/scripts/tmux-sessionizer
+
+start_custom() {
+    selected=$1
+    echo "start custom: $selected"
+    bash ~/.config/tmux/sessions/$selected
+}
+
+start_custom_or_attach() {
+    selected=$1
+    echo "start custom or attach: $selected"
+    if tmux has-session -t=$selected 2> /dev/null; then
+        tmux_switch_session $selected
+    else
+        start_custom $selected
+    fi
+}
+
+start() {
+    selected=$1
+    selected_name=$2
+    echo "start: $selected (name: $selected_name)"
+
+    window1="$(basename $SHELL)"
+    tmux new-session -d -s $selected_name -n $window1 -c $selected
+
+    window2="nvim"
+    tmux new-window -d -t $selected_name:2 -n $window2 -c $selected
+    tmux send-keys -t $selected_name:$window2 "nvim ." Enter
+
+    window3="git"
+    git_result=$(ls -a $selected | grep -w .git)
+    if [[ -n "$git_result" ]]; then
+        tmux new-window -d -t $selected_name:3 -n $window3 -c $selected
+        tmux send-keys -t $selected_name:$window3 "git fetch -p" Enter
+        tmux send-keys -t $selected_name:$window3 "git status" Enter
+    fi
+
+    tmux_switch_session $selected_name
+}
+
+start_or_attach() {
+    selected=$1
+    selected_name=$(basename $selected | tr . _)
+    echo "start or attach: $selected"
+    if tmux has-session -t=$selected_name 2> /dev/null; then
+        tmux_switch_session $selected_name
+    else
+        start $selected $selected_name
+    fi
+}
+
+
+if [[ $# -eq 1 ]]; then
+    selected=$1 
+    result=$(ls -a ~/.config/tmux/sessions | grep -w $selected)
+    if [[ -n "$result" ]]; then
+        start_custom_or_attach $selected
+        exit 0
+    fi
+    selected=$(find ~ -mindepth 1 -maxdepth 3 -type d -name "*$selected*" | fzf)
+else
+    sessions_dir=~/.config/tmux/sessions
+    selected=$( { 
+    find $sessions_dir -mindepth 1 -maxdepth 1 -type f -printf '%P\n' ; 
+    find ~ -mindepth 1 -maxdepth 3 -type d -not -path "*/.*" -not -path "*/_*" -not -path "$HOME/snap/*" ;
+    find ~/.config -mindepth 0 -maxdepth 1 -type d ;
+} | fzf)
+fi 
+
+if [[ -z "$selected" ]]; then
+    exit 1
+elif [[ -f "$sessions_dir/$selected" ]]; then
+    start_custom_or_attach $selected
+else
+    start_or_attach $selected
+fi

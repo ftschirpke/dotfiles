@@ -2,6 +2,10 @@
 
 !alacritty
 !alacritty/*
+
+!i3
+!i3/*
+
 !i3status
 !i3status/*
 
@@ -13,3 +17,7 @@ nvim/lazy-lock.json
 !zsh/*
 zsh/.zcompcache
 zsh/.zcompdump
+
+!tmux
+!tmux/*
+tmux/plugins/*
