@@ -1,5 +1,10 @@
 *
 
+# machine-specific patches
+!duralumin.patch
+
+# config directories that should be tracked:
+
 !alacritty
 !alacritty/*
 
