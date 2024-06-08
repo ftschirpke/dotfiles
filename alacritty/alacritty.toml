@@ -1,9 +1,10 @@
+import = [
+    "~/.config/alacritty/themes/themes/xterm.toml"
+]
+
 [font]
 normal = { family = "JetBrainsMonoNL Nerd Font" }
 size = 8
-
-[colors.primary]
-background = "#000000"
 
 [env]
 TERM = "xterm-256color"
