@@ -8,3 +8,8 @@
 !nvim
 !nvim/*
 nvim/lazy-lock.json
+
+!zsh
+!zsh/*
+zsh/.zcompcache
+zsh/.zcompdump
