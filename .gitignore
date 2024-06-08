@@ -2,6 +2,7 @@
 
 # machine-specific patches
 !duralumin.patch
+!thinkharder.patch
 
 # config directories that should be tracked:
 

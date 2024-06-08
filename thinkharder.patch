@@ -1,0 +1,13 @@
+diff --git a/alacritty/alacritty.toml b/alacritty/alacritty.toml
+index 86b39ca..0be2af8 100644
+--- a/alacritty/alacritty.toml
++++ b/alacritty/alacritty.toml
+@@ -4,7 +4,7 @@ import = [
+ 
+ [font]
+ normal = { family = "JetBrainsMonoNL Nerd Font" }
+-size = 13
++size = 8
+ 
+ [env]
+ TERM = "xterm-256color"
