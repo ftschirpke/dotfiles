@@ -11,6 +11,17 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep="egrep --color=auto"
 fi
 
+
+if command -v bat &> /dev/null
+then
+    alias cat=bat
+fi
+if command -v rg &> /dev/null
+then
+    alias grep=rg
+fi
+
+
 alias sFONDA=". ~/.kube/set_fonda_config.sh"
 alias sHU=". ~/.kube/set_hu_config.sh"
 alias sCPU=". ~/.kube/set_cpu_config.sh"
