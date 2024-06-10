@@ -9,6 +9,9 @@
 !alacritty
 !alacritty/*
 
+!git
+!git/*
+
 !i3
 !i3/*
 
