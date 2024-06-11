@@ -11,14 +11,14 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep="egrep --color=auto"
 fi
 
-
-if command -v bat &> /dev/null
-then
+if command -v bat &> /dev/null; then
     alias cat=bat
 fi
-if command -v rg &> /dev/null
-then
+if command -v rg &> /dev/null; then
     alias grep=rg
+fi
+if command -v xdg-open &> /dev/null; then
+    alias open=xdg-open
 fi
 
 
