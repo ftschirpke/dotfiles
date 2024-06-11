@@ -13,7 +13,7 @@ return {
 
             dap.adapters.lldb = {
                 type = 'executable',
-                command = '/usr/bin/lldb-vscode',
+                command = '/usr/bin/lldb',
                 name = 'lldb'
             }
             dap.configurations.cpp = {
