@@ -30,3 +30,6 @@ zsh/.zcompdump
 !tmux
 !tmux/**
 tmux/plugins/**
+
+!zathura
+!zathura/**
