@@ -4,6 +4,7 @@ return {
         require("zen-mode").setup({
             window = {
                 backdrop = 0.85,
+                width = 126,
             },
             plugins = {
                 tmux = { enabled = true },
