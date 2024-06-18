@@ -60,14 +60,16 @@ if [[ $# -eq 1 ]]; then
         start_custom_or_attach $selected
         exit 0
     fi
-    selected=$(fd --type d --base-directory ~ --search-path ~/.config --search-path ~/projects --search-path ~/studium | fzf -q "$selected" )
 else
-    sessions_dir=~/.config/tmux/sessions
-    selected=$( { 
-    fd --type f --base-directory $sessions_dir
-    fd --type d --base-directory ~ --search-path ~/.config --search-path ~/projects --search-path ~/studium
-    } | fzf)
+    selected=""
 fi 
+
+sessions_dir=~/.config/tmux/sessions
+
+selected=$( { 
+fd --type f --base-directory $sessions_dir
+fd --type d --base-directory $HOME --search-path $XDG_CONFIG_HOME --search-path ~/projects --search-path ~/studium --search-path ~/shk-leser
+} | fzf -q "$selected" )
 
 if [[ -z "$selected" ]]; then
     exit 1
