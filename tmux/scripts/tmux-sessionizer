@@ -60,14 +60,13 @@ if [[ $# -eq 1 ]]; then
         start_custom_or_attach $selected
         exit 0
     fi
-    selected=$(find ~ -mindepth 1 -maxdepth 3 -type d -name "*$selected*" | fzf)
+    selected=$(fd --type d --base-directory ~ --search-path ~/.config --search-path ~/projects --search-path ~/studium | fzf -q "$selected" )
 else
     sessions_dir=~/.config/tmux/sessions
     selected=$( { 
-    find $sessions_dir -mindepth 1 -maxdepth 1 -type f -printf '%P\n' ; 
-    find ~ -mindepth 1 -maxdepth 3 -type d -not -path "*/.*" -not -path "*/_*" -not -path "$HOME/snap/*" ;
-    find ~/.config -mindepth 0 -maxdepth 1 -type d ;
-} | fzf)
+    fd --type f --base-directory $sessions_dir
+    fd --type d --base-directory ~ --search-path ~/.config --search-path ~/projects --search-path ~/studium
+    } | fzf)
 fi 
 
 if [[ -z "$selected" ]]; then
