@@ -3,17 +3,23 @@ local skip_jump = { skip_groups = true, jump = true }
 return {
     "folke/trouble.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
-    config = function()
-        require("trouble").setup({})
-        vim.keymap.set("n", "<leader>do", function() require("trouble").toggle("workspace_diagnostics") end)
-        vim.keymap.set("n", "<leader>dc", function() require("trouble").toggle() end)
-        vim.keymap.set("n", "<leader>dq", function() require("trouble").toggle("quickfix") end)
-        vim.keymap.set("n", "<leader>n", function() require("trouble").next(skip_jump) end)
-        vim.keymap.set("n", "<leader>N", function() require("trouble").previous(skip_jump) end)
-
-        vim.keymap.set("n", "<leader>dn", function()
-            require("trouble").open("workspace_diagnostics")
-            require("trouble").next(skip_jump)
-        end)
-    end,
+    opts = {}, -- for default options, refer to the configuration section for custom setup.
+    cmd = "Trouble",
+    keys = {
+        {
+            "<leader>do",
+            "<cmd>Trouble diagnostics toggle<cr>",
+            desc = "Diagnostics (Trouble)",
+        },
+        {
+            "<leader>db",
+            "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
+            desc = "Buffer Diagnostics (Trouble)",
+        },
+        {
+            "<leader>dp",
+            "<cmd>Trouble symbols toggle focus=false<cr>",
+            desc = "Symbols (Trouble)",
+        },
+    }
 }
