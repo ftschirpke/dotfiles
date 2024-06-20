@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+name=$(basename "$0")
+dir=$HOME/manual-installs
+echo "Starting tmux session $name"
+window1="bash"
+tmux new-session -d -s $name -n $window1 -c $dir
+
+tmux_switch_session $name
