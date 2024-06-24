@@ -6,7 +6,7 @@ echo "Starting tmux session $name"
 window1="bash"
 tmux new-session -d -s $name -n $window1 -c $dir
 
-tmux send-keys -t $selected_name:$window1 "git fetch -p" Enter
+tmux send-keys -t $selected_name:$window1 "git fetch --all -p" Enter
 tmux send-keys -t $selected_name:$window1 "git status" Enter
 
 window2="nvim"
