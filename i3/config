@@ -200,6 +200,21 @@ bindsym Ctrl+Mod1+l exec "i3lock -c 000000"
 bindsym $mod+z exec ~/.screenlayout/single_screen.sh
 bindsym $mod+u exec ~/.screenlayout/home.sh
 
+bindsym $mod+o scratchpad show
+bindsym $mod+p move scratchpad; scratchpad show; resize set 960 540; move absolute position center
+
+mode "move" {
+    bindsym u exec --no-startup-id $XDG_CONFIG_HOME/i3/move_to_corner.sh u, mode "default"
+    bindsym m exec --no-startup-id $XDG_CONFIG_HOME/i3/move_to_corner.sh m, mode "default"
+    bindsym r exec --no-startup-id $XDG_CONFIG_HOME/i3/move_to_corner.sh r, mode "default"
+    bindsym v exec --no-startup-id $XDG_CONFIG_HOME/i3/move_to_corner.sh v, mode "default"
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $mod+m mode "default"
+}
+bindsym $mod+m mode "move"
+
 exec ~/.screenlayout/home.sh
 
 workspace $ws1 output DP-0
