@@ -38,6 +38,9 @@ source $ZDOTDIR/vim_cursor_mode.sh
 
 source $ZDOTDIR/aliases.sh
 
+# path adjustments
+source $ZDOTDIR/path_additions.sh
+
 # zsh autosuggestions
 source "$HOME/manual-installs/zsh-autosuggestions/zsh-autosuggestions.zsh"
 bindkey '^z' autosuggest-accept
