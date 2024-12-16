@@ -14,18 +14,19 @@ return {
                 },
             })
             local builtin = require("telescope.builtin")
-            vim.keymap.set("n", "<leader>pf", builtin.find_files, {})
-            vim.keymap.set("n", "<C-p>", builtin.git_files, {})
-            vim.keymap.set("n", "<leader>ps", builtin.live_grep, {})
+            vim.keymap.set("n", "<leader>pf", builtin.find_files, { desc = "Find file in project files" })
+            vim.keymap.set("n", "<C-p>", builtin.git_files, { desc = "Find file in git files" })
+            vim.keymap.set("n", "<leader>ps", builtin.live_grep, { desc = "Grep find in project files" })
 
-            vim.keymap.set("n", "gr", builtin.lsp_references, {})
-            vim.keymap.set("n", "gd", builtin.lsp_definitions, {})
-            vim.keymap.set("n", "gi", builtin.lsp_implementations, {})
+            vim.keymap.set("n", "gr", builtin.lsp_references, { desc = "LSP: go to references" })
+            vim.keymap.set("n", "gd", builtin.lsp_definitions, { desc = "LSP: go to definition(s)" })
+            vim.keymap.set("n", "gi", builtin.lsp_implementations, { desc = "LSP: go to implementation(s)" })
 
-            vim.keymap.set("n", "<leader>ld", builtin.lsp_document_symbols, {})
-            vim.keymap.set("n", "<leader>ls", builtin.lsp_dynamic_workspace_symbols, {})
+            vim.keymap.set("n", "<leader>ld", builtin.lsp_document_symbols, { desc = "LSP: list document symbols" })
+            vim.keymap.set("n", "<leader>ls", builtin.lsp_dynamic_workspace_symbols,
+                { desc = "LSP: list workspace symbols" })
 
-            vim.keymap.set("n", "<leader>ds", builtin.diagnostics, {})
+            vim.keymap.set("n", "<leader>ds", builtin.diagnostics, { desc = "LSP: list workspace diagnostics (errors)" })
         end,
     },
     {

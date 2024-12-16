@@ -1,33 +1,26 @@
--- open :Ex
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+vim.keymap.set("n", "<leader>pv", vim.cmd.Ex, { desc = "Open file explorer" })
 
--- toggle line wrap
-vim.keymap.set({ "n", "v" }, "<leader>w", ":set wrap!<CR>")
+vim.keymap.set({ "n", "v" }, "<leader>w", ":set wrap!<CR>", { desc = "Toggle line wrapping" })
 
--- move lines
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move selection down a line" })
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move selection up a line" })
 
--- center after moving
-vim.keymap.set("n", "<C-d>", "<C-d>zz")
-vim.keymap.set("n", "<C-u>", "<C-u>zz")
-vim.keymap.set("n", "n", "nzzzv")
-vim.keymap.set("n", "N", "Nzzzv")
+vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Go half page down and center view" })
+vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Go half page up and center view" })
+vim.keymap.set("n", "n", "nzzzv", { desc = "Jump to next search result and center view" })
+vim.keymap.set("n", "N", "Nzzzv", { desc = "Jump to previous search result and center view" })
 
--- keep selection after indenting
-vim.keymap.set("v", "<", "<gv")
-vim.keymap.set("v", ">", ">gv")
+vim.keymap.set("v", "<", "<gv", { desc = "Indent selection to the left, without using selection" })
+vim.keymap.set("v", ">", ">gv", { desc = "Indent selection to the right, without using selection" })
 
--- deleting into void and maintain previous buffer
-vim.keymap.set("x", "<leader>p", "\"_dP")
-vim.keymap.set({ "n", "v" }, "<leader>d", "\"_d")
+vim.keymap.set("x", "<leader>p", "\"_dP",
+    { desc = "Pasting over selection into void buffer (without saving into paste buffer)" })
+vim.keymap.set({ "n", "v" }, "<leader>d", "\"_d",
+    { desc = "Deleting into void buffer (without saving into paste buffer)" })
 
--- separating vim and system clipboard
-vim.keymap.set({ "n", "v" }, "<leader>y", "\"+y")
-vim.keymap.set("n", "<leader>Y", "\"+Y")
+vim.keymap.set({ "n", "v" }, "<leader>y", "\"+y", { desc = "Yank to system clipboard" })
 
--- make Ctrl+C and Esc equal
-vim.keymap.set("i", "<C-c>", "<Esc>")
+vim.keymap.set("i", "<C-c>", "<Esc>", { desc = "Map Esc to Ctrl+C" })
 
--- replace the word I was on
-vim.keymap.set("n", "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>")
+vim.keymap.set("n", "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>",
+    { desc = "Find and replace the word the cursor is on" })

@@ -32,13 +32,18 @@ local configure_lsp_zero = function()
     lsp_zero.on_attach(function(_, bufnr)
         lsp_zero.default_keymaps({ buffer = bufnr })
         local opts = { buffer = bufnr, remap = false }
+        opts["desc"] = "LSP: Hover element (show hovering information)"
         vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
+        opts["desc"] = "LSP: Show (and execute) code actions"
         vim.keymap.set("n", "<leader>ca", function() vim.lsp.buf.code_action() end, opts)
+        opts["desc"] = "LSP: Rename a named element"
         vim.keymap.set("n", "<leader>rn", function() vim.lsp.buf.rename() end, opts)
+        opts["desc"] = "LSP: Format file"
         vim.keymap.set({ "n", "x" }, "<leader>f", function()
             vim.lsp.buf.format({ async = false, timeout_ms = 5000 })
         end, opts)
 
+        opts["desc"] = "LSP: Toggle format on save (autoformat)"
         vim.keymap.set("n", "<leader>k", function()
             vim.b.lsp_zero_enable_autoformat = not vim.b.lsp_zero_enable_autoformat
             if vim.b.lsp_zero_enable_autoformat then
@@ -48,6 +53,7 @@ local configure_lsp_zero = function()
             end
         end, opts)
 
+        opts["desc"] = "LSP: Switch between source and header (Clangd)"
         vim.keymap.set("n", "<leader>h", ":ClangdSwitchSourceHeader<CR>", opts)
     end)
 

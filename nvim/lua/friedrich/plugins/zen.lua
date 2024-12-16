@@ -10,6 +10,6 @@ return {
                 tmux = { enabled = true },
             },
         })
-        vim.keymap.set("n", "<leader>z", function() require("zen-mode").toggle() end)
+        vim.keymap.set("n", "<leader>z", function() require("zen-mode").toggle() end, { desc = "Toggle Zen mode" })
     end,
 }

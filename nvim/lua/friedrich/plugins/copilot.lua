@@ -15,6 +15,6 @@ return {
             ['*'] = false,
         }
         -- as soon as the plugin is loaded, the keymap toggles the plugin
-        vim.keymap.set("n", "<leader>ä", copilot_toggle)
+        vim.keymap.set("n", "<leader>ä", copilot_toggle, { desc = "Toggle GitHub Copilot" })
     end,
 }

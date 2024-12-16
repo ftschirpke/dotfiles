@@ -9,17 +9,17 @@ return {
         {
             "<leader>do",
             "<cmd>Trouble diagnostics toggle<cr>",
-            desc = "Diagnostics (Trouble)",
+            desc = "Trouble: Toggle diagnostics",
         },
         {
             "<leader>db",
             "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
-            desc = "Buffer Diagnostics (Trouble)",
+            desc = "Trouble: Toggle buffer diagonistcs",
         },
         {
             "<leader>dp",
             "<cmd>Trouble symbols toggle focus=false<cr>",
-            desc = "Symbols (Trouble)",
+            desc = "Trouble: Toggle symbols",
         },
     }
 }
