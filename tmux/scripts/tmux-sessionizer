@@ -31,7 +31,7 @@ start() {
     tmux send-keys -t $selected_name:$window2 "nvim ." Enter
 
     window3="git"
-    git_result=$(ls -a $selected | grep -w .git)
+    git_result=$(cd $selected; git status | grep -w "On branch")
     if [[ -n "$git_result" ]]; then
         tmux new-window -d -t $selected_name:3 -n $window3 -c $selected
         tmux send-keys -t $selected_name:$window3 "git fetch --all -p" Enter
