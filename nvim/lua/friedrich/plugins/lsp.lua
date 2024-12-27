@@ -69,6 +69,7 @@ local configure_lsp_zero = function()
             ["gopls"] = { "go" },
             ["texlab"] = { "tex", "bib" },
             ["rust_analyzer"] = { "rs", "rust" },
+            ["zls"] = { "zig" },
         },
     })
 
