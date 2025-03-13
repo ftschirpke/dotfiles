@@ -154,27 +154,27 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
+    # These bindings trigger as soon as you enter the resize mode
 
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindsym h resize shrink width 10 px or 10 ppt
-        bindsym l resize grow width 10 px or 10 ppt
-        bindsym j resize grow height 10 px or 10 ppt
-        bindsym k resize shrink height 10 px or 10 ppt
+    # Pressing left will shrink the window’s width.
+    # Pressing right will grow the window’s width.
+    # Pressing up will shrink the window’s height.
+    # Pressing down will grow the window’s height.
+    bindsym h resize shrink width 10 px or 10 ppt
+    bindsym l resize grow width 10 px or 10 ppt
+    bindsym j resize grow height 10 px or 10 ppt
+    bindsym k resize shrink height 10 px or 10 ppt
 
-        # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
+    # same bindings, but for the arrow keys
+    bindsym Left resize shrink width 10 px or 10 ppt
+    bindsym Right resize grow width 10 px or 10 ppt
+    bindsym Down resize grow height 10 px or 10 ppt
+    bindsym Up resize shrink height 10 px or 10 ppt
 
-        # back to normal: Enter or Escape or $mod+r
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-        bindsym $mod+r mode "default"
+    # back to normal: Enter or Escape or $mod+r
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $mod+r mode "default"
 }
 
 bindsym $mod+r mode "resize"
@@ -203,18 +203,6 @@ bindsym $mod+u exec ~/.screenlayout/home.sh
 bindsym $mod+o scratchpad show
 bindsym $mod+p move scratchpad; scratchpad show; resize set 960 540; move absolute position center
 
-mode "move" {
-    bindsym u exec --no-startup-id $XDG_CONFIG_HOME/i3/move_to_corner.sh u, mode "default"
-    bindsym m exec --no-startup-id $XDG_CONFIG_HOME/i3/move_to_corner.sh m, mode "default"
-    bindsym r exec --no-startup-id $XDG_CONFIG_HOME/i3/move_to_corner.sh r, mode "default"
-    bindsym v exec --no-startup-id $XDG_CONFIG_HOME/i3/move_to_corner.sh v, mode "default"
-
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-    bindsym $mod+m mode "default"
-}
-bindsym $mod+m mode "move"
-
 exec ~/.screenlayout/home.sh
 
 workspace $ws1 output DP-0
@@ -224,8 +212,8 @@ workspace $ws5 output DP-0
 
 workspace $ws3 output DP-2
 
-for_window [class="alacritty"] move to workspace $ws1
-for_window [class="firefox"] move to workspace $ws2
+for_window [class="Alacritty"] move to workspace $ws1
+for_window [class="brave-browser"] move to workspace $ws2
 for_window [class="discord"] move to workspace $ws3
 for_window [class="Slack"] move to workspace $ws3
 for_window [class="Spotify"] move to workspace $ws3
