@@ -213,7 +213,7 @@ workspace $ws5 output DP-0
 workspace $ws3 output DP-2
 
 for_window [class="Alacritty"] move to workspace $ws1
-for_window [class="brave-browser"] move to workspace $ws2
+for_window [class="Brave-browser"] move to workspace $ws2
 for_window [class="discord"] move to workspace $ws3
 for_window [class="Slack"] move to workspace $ws3
 for_window [class="Spotify"] move to workspace $ws3
