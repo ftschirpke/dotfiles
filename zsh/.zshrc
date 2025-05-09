@@ -38,19 +38,12 @@ source $ZDOTDIR/vim_cursor_mode.sh
 
 source $ZDOTDIR/aliases.sh
 
-# path adjustments
-source $ZDOTDIR/path_additions.sh
-
 # zsh autosuggestions
 source "$HOME/manual-installs/zsh-autosuggestions/zsh-autosuggestions.zsh"
 bindkey '^z' autosuggest-accept
 
 # zsh colors
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-
-# direnv setup
-export DIRENV_LOG_FORMAT=
-eval "$(direnv hook zsh)"
 
 # === ADDED BY INSTALL SCRIPTS ===
 
