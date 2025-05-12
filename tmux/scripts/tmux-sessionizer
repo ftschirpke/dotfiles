@@ -43,7 +43,7 @@ start() {
 
 start_or_attach() {
     selected=$1
-    selected_name=$(basename $selected | tr . _)
+    selected_name=$(basename $(dirname $selected) | tr . _)/$(basename $selected | tr . _)
     echo "start or attach: $selected"
     if tmux has-session -t=$selected_name 2> /dev/null; then
         tmux_switch_session $selected_name
