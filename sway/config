@@ -11,7 +11,7 @@ set $font "JetBrainsMono Nerd Font-10"
 
 set $term env alacritty
 
-set $swaylock swaylock-fancy -f $font
+set $swaylock swaylock -c 000000
 
 set $menu-run rofi -show run
 set $menu-window rofi -show window
