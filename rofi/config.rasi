@@ -1,0 +1,15 @@
+* {
+    background:     #0000003f;
+    background-alt: #0000003f;
+    foreground:     #aaaaaaaf;
+    selected:       #aa6622af;
+    active:         #ffffffaf;
+    urgent:         #ffffffaf;
+
+    border-color:                var(background);
+    background-color:            var(background);
+    normal-background:           var(background);
+    alternate-normal-background: var(background);
+    selected-normal-background:  var(selected);
+    highlight:                   var(urgent);
+}

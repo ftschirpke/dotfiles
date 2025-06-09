@@ -12,12 +12,6 @@
 !git
 !git/**
 
-!i3
-!i3/**
-
-!i3status
-!i3status/**
-
 !nvim
 !nvim/**
 nvim/lazy-lock.json
@@ -36,3 +30,12 @@ tmux/plugins/**
 
 !fd
 !fd/**
+
+!sway
+!sway/**
+
+!waybar
+!waybar/**
+
+!rofi
+!rofi/**

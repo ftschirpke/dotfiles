@@ -7,8 +7,10 @@ source $ZDOTDIR/aliases.sh
 # path adjustments
 source $ZDOTDIR/path_additions.sh
 
+export XDG_CURRENT_DESKTOP=sway
+
 # only execute right after login
-if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]
+if [[ -z $WAYLAND_DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]
 then
-    startx # start GUI
+    sway --unsupported-gpu
 fi
