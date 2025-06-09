@@ -33,6 +33,7 @@ tmux/plugins/**
 
 !sway
 !sway/**
+sway/.wallpaper_index
 
 !waybar
 !waybar/**

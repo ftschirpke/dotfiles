@@ -37,13 +37,11 @@ output $monitor-left {
     pos 0 -1200 
     res 3840x2160
     transform 90
-    bg /home/friedrich/wallpapers/wp0.jpg fill
 }
 
 output $monitor-main {
     pos 2160 0 
     res 3840x2160
-    bg /home/friedrich/wallpapers/wp0.jpg fill
 }
 
 focus output DP-1
@@ -194,6 +192,10 @@ bindsym $mod+w exec cycle_wallpapers.sh
 
 # --- ON STARTUP ---
 
-exec $term
 exec waybar
+
+exec set_wallpapers.sh
+
+exec ckb-next
+exec $term
 
