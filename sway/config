@@ -163,21 +163,22 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 
 # Resize mode
 mode "resize" {
-	# Shrink the width
-	bindsym $left resize shrink width 10px
+    # Shrink the width
+    bindsym $left resize shrink width 10px
 
-	# Grow the width
-	bindsym $right resize grow width 10px
+    # Grow the width
+    bindsym $right resize grow width 10px
 
-	# Shrink the height
-	bindsym $up resize shrink height 10px
+    # Shrink the height
+    bindsym $up resize shrink height 10px
 
-	# Grow the height
-	bindsym $down resize grow height 10px
+    # Grow the height
+    bindsym $down resize grow height 10px
 
-	# Return to default mode
-	bindsym Return mode "default"
-	bindsym Escape mode "default"
+    # Return to default mode
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $mod+r mode "default"
 }
 
 # Enter resize mode
