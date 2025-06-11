@@ -61,7 +61,8 @@ for_window [class="Spotify"] move to workspace $ws3
 for_window [class="obsidian"] move to workspace $ws4
 for_window [class="thunderbird"] move to workspace $ws5
 
-for_window [title="Picture-in-Picture"] sticky enable
+for_window [title="Picture-in-picture"] sticky enable
+for_window [title="Picture-in-picture"] floating toggle
 
 
 # --- INPUT ---
