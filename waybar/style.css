@@ -2,8 +2,8 @@
 	border: none;
 	border-radius: 0;
 	font-family: "JetBrainsMono Nerd Font";
-	font-size: 18px;
-	min-height: 24px;
+	font-size: 12px;
+	min-height: 18px;
 }
 
 window#waybar {
@@ -136,5 +136,17 @@ window#waybar.hidden {
 	transition: none;
 	color: #ffffff;
 	background: #282a36;
+}
+
+#battery {
+	margin-top: 8px;
+	margin-left: 8px;
+	padding-left: 16px;
+	padding-right: 16px;
+	margin-bottom: 0;
+	border-radius: 26px;
+	transition: none;
+	color: #1d1d1d;
+	background: #ff5e57;
 }
 
