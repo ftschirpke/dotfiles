@@ -12,5 +12,5 @@ export XDG_CURRENT_DESKTOP=sway
 # only execute right after login
 if [[ -z $WAYLAND_DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]
 then
-    sway --unsupported-gpu
+    sway
 fi
