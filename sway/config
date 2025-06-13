@@ -44,7 +44,7 @@ output $monitor-main {
     res 3840x2160
 }
 
-focus output DP-1
+focus output $monitor-main
 
 workspace $ws1 output $monitor-main
 workspace $ws2 output $monitor-main
@@ -184,11 +184,12 @@ mode "resize" {
 # Enter resize mode
 bindsym $mod+r mode "resize"
 
-bindsym $mod+Ctrl+greater move workspace to output next
-
+bindsym $mod+greater move workspace to output right
+bindsym $mod+less move workspace to output left
+ 
 # TODO: could also only use one keyboard shortcut with "toggle"
-bindsym $mod+z output DP-2 disable
-bindsym $mod+o output DP-2 enable
+bindsym $mod+z output $monitor-left disable
+bindsym $mod+o output $monitor-left enable
 
 bindsym $mod+w exec cycle_wallpapers.sh
 
