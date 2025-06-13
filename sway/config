@@ -16,8 +16,8 @@ set $swaylock swaylock -c 000000
 set $menu-run rofi -show run
 set $menu-window rofi -show window
 
-set $monitor-right DP-2
-set $monitor-main DP-1
+set $monitor-main HDMI-A-1
+set $monitor-left eDP-1
 
 set $ws1 "1"
 set $ws2 "2"
@@ -33,15 +33,14 @@ set $ws10 "10"
 
 # --- OUTPUT ---
 
-output $monitor-right {
-    pos 3840 0
-    res 3840x2160
-    transform 270
+output $monitor-left {
+    res 1920x1080
+    pos 0 1440
 }
 
 output $monitor-main {
-    pos 0 1400 
-    res 3840x2160
+    res 2560x1440
+    pos 0 0
 }
 
 focus output $monitor-main
@@ -184,12 +183,12 @@ mode "resize" {
 # Enter resize mode
 bindsym $mod+r mode "resize"
 
-bindsym $mod+greater move workspace to output right
-bindsym $mod+less move workspace to output left
- 
+bindsym $mod+greater move workspace to output up
+bindsym $mod+less move workspace to output down
+
 # TODO: could also only use one keyboard shortcut with "toggle"
-bindsym $mod+z output $monitor-right disable
-bindsym $mod+o output $monitor-right enable
+bindsym $mod+z output $monitor-left disable
+bindsym $mod+o output $monitor-left enable
 
 bindsym $mod+w exec cycle_wallpapers.sh
 

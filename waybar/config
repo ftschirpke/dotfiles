@@ -2,7 +2,7 @@
 	"layer": "top",
 	"modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": ["clock"],
-	"modules-right": ["network", "pulseaudio", "temperature", "cpu", "memory", "disk"],
+	"modules-right": ["battery", "network", "pulseaudio", "temperature", "cpu", "memory", "disk"],
     "pulseaudio": {
         "format": "{volume}% {icon}",
         "format-bluetooth": "{volume}% {icon}",
@@ -38,5 +38,9 @@
     "disk": {
         "interval": 30,
         "format": "{used}/{total} ",
+    },
+    "battery": {
+        "format": "battery {}%",
+        "full-at": 80,
     }
 }
