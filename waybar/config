@@ -9,8 +9,6 @@
         "format-muted": "",
         "format-icons": {
             "headphone": "",
-            "hands-free": "",
-            "headset": "",
             "phone": "",
             "portable": "",
             "car": "",
@@ -27,7 +25,7 @@
 	"network": {
 		"tooltip": false,
 		"format-wifi": " {essid} {ipaddr}",
-		"format-ethernet": " {ipaddr}"
+		"format-ethernet": "󰈁 {ipaddr}"
 	},
 	"cpu": {
 		"tooltip": false,
@@ -39,6 +37,6 @@
 	},
     "disk": {
         "interval": 30,
-        "format": "{used}/{total}",
+        "format": "{used}/{total} ",
     }
 }
