@@ -30,3 +30,7 @@ vim.g.mapleader = " "
 
 vim.g.netrw_sort_sequence = "[\\/]$,*"
 vim.g.netrw_bufsettings = "noma nomod nonu nobl nowrap ro rnu"
+
+vim.opt.winborder = "single"
+
+vim.opt.signcolumn = "yes"

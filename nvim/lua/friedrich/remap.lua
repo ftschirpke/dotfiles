@@ -24,3 +24,33 @@ vim.keymap.set("i", "<C-c>", "<Esc>", { desc = "Map Esc to Ctrl+C" })
 
 vim.keymap.set("n", "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>",
     { desc = "Find and replace the word the cursor is on" })
+
+local make_toggle_inline_diagnostics = function()
+    local counter = 0
+    return function()
+        if counter % 2 == 0 then
+            vim.diagnostic.config({
+                virtual_text = true,
+                virtual_lines = false,
+                signs = true,
+                underline = true,
+                severity_sort = true,
+            })
+        else
+            vim.diagnostic.config({
+                virtual_text = false,
+                virtual_lines = { current_line = false },
+                signs = true,
+                underline = true,
+                severity_sort = true,
+            })
+        end
+        counter = counter + 1
+    end
+end
+
+local toggle_inline_diagnostics = make_toggle_inline_diagnostics()
+toggle_inline_diagnostics()
+
+vim.keymap.set("n", "<leader>dl", toggle_inline_diagnostics,
+    { desc = "Toggle diagnostic display between inline and virtual lines below" })
