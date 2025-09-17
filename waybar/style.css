@@ -25,8 +25,8 @@ window#waybar.hidden {
 }
 
 #workspaces {
-	margin-top: 8px;
-	margin-left: 12px;
+	margin-top: 16px;
+	margin-left: 16px;
 	margin-bottom: 0;
 	border-radius: 26px;
 	background: #282a36;
@@ -53,7 +53,7 @@ window#waybar.hidden {
 }
 
 #network {
-	margin-top: 8px;
+	margin-top: 16px;
 	margin-left: 8px;
 	padding-left: 16px;
 	padding-right: 16px;
@@ -65,7 +65,7 @@ window#waybar.hidden {
 }
 
 #pulseaudio {
-	margin-top: 8px;
+	margin-top: 16px;
 	margin-left: 8px;
 	padding-left: 16px;
 	padding-right: 16px;
@@ -77,7 +77,7 @@ window#waybar.hidden {
 }
 
 #temperature {
-	margin-top: 8px;
+	margin-top: 16px;
 	margin-left: 8px;
 	padding-left: 16px;
 	padding-right: 16px;
@@ -89,7 +89,7 @@ window#waybar.hidden {
 }
 
 #cpu {
-	margin-top: 8px;
+	margin-top: 16px;
 	margin-left: 8px;
 	padding-left: 16px;
 	padding-right: 16px;
@@ -101,7 +101,7 @@ window#waybar.hidden {
 }
 
 #memory {
-	margin-top: 8px;
+	margin-top: 16px;
 	margin-left: 8px;
 	padding-left: 16px;
 	padding-right: 16px;
@@ -113,8 +113,9 @@ window#waybar.hidden {
 }
 
 #disk {
-	margin-top: 8px;
+	margin-top: 16px;
 	margin-left: 8px;
+	margin-right: 16px;
 	padding-left: 16px;
 	padding-right: 16px;
 	margin-bottom: 0;
@@ -125,7 +126,7 @@ window#waybar.hidden {
 }
 
 #clock {
-	margin-top: 8px;
+	margin-top: 16px;
 	margin-left: 8px;
 	margin-right: 12px;
 	padding-left: 16px;
