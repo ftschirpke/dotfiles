@@ -2,7 +2,7 @@
 	border: none;
 	border-radius: 0;
 	font-family: "JetBrainsMono Nerd Font";
-	font-size: 12px;
+	font-size: 16px;
 	min-height: 18px;
 }
 
@@ -25,7 +25,7 @@ window#waybar.hidden {
 }
 
 #workspaces {
-	margin-top: 16px;
+	margin-top: 8px;
 	margin-left: 16px;
 	margin-bottom: 0;
 	border-radius: 26px;
@@ -53,7 +53,7 @@ window#waybar.hidden {
 }
 
 #network {
-	margin-top: 16px;
+	margin-top: 8px;
 	margin-left: 8px;
 	padding-left: 16px;
 	padding-right: 16px;
@@ -65,7 +65,7 @@ window#waybar.hidden {
 }
 
 #pulseaudio {
-	margin-top: 16px;
+	margin-top: 8px;
 	margin-left: 8px;
 	padding-left: 16px;
 	padding-right: 16px;
@@ -77,7 +77,7 @@ window#waybar.hidden {
 }
 
 #temperature {
-	margin-top: 16px;
+	margin-top: 8px;
 	margin-left: 8px;
 	padding-left: 16px;
 	padding-right: 16px;
@@ -89,7 +89,7 @@ window#waybar.hidden {
 }
 
 #cpu {
-	margin-top: 16px;
+	margin-top: 8px;
 	margin-left: 8px;
 	padding-left: 16px;
 	padding-right: 16px;
@@ -101,7 +101,7 @@ window#waybar.hidden {
 }
 
 #memory {
-	margin-top: 16px;
+	margin-top: 8px;
 	margin-left: 8px;
 	padding-left: 16px;
 	padding-right: 16px;
@@ -113,7 +113,7 @@ window#waybar.hidden {
 }
 
 #disk {
-	margin-top: 16px;
+	margin-top: 8px;
 	margin-left: 8px;
 	margin-right: 16px;
 	padding-left: 16px;
@@ -126,7 +126,7 @@ window#waybar.hidden {
 }
 
 #clock {
-	margin-top: 16px;
+	margin-top: 8px;
 	margin-left: 8px;
 	margin-right: 12px;
 	padding-left: 16px;

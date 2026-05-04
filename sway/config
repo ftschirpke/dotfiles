@@ -16,8 +16,8 @@ set $swaylock swaylock -c 000000
 set $menu-run rofi -show run
 set $menu-window rofi -show window
 
-set $monitor-main HDMI-A-1
-set $monitor-left eDP-1
+set $monitor-main eDP-1
+set $monitor-left HDMI-A-1
 
 set $ws1 "1"
 set $ws2 "2"
@@ -33,14 +33,14 @@ set $ws10 "10"
 
 # --- OUTPUT ---
 
-output $monitor-left {
-    res 1920x1080
-    pos 0 1440
+output $monitor-main {
+    res 2560x1600
+    pos 0 0
 }
 
-output $monitor-main {
+output $monitor-left {
     res 2560x1440
-    pos 0 0
+    pos 0 1600
 }
 
 focus output $monitor-main

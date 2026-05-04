@@ -12,4 +12,6 @@
     alternate-normal-background: var(background);
     selected-normal-background:  var(selected);
     highlight:                   var(urgent);
+
+    font: "JetBrainsMono Nerd Font 19";
 }

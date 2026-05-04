@@ -2,7 +2,7 @@
 	"layer": "top",
 	"modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": ["clock"],
-	"modules-right": ["battery", "network", "pulseaudio", "temperature", "cpu", "memory", "disk"],
+	"modules-right": ["battery", "network", "pulseaudio", "cpu", "memory", "disk"],
     "pulseaudio": {
         "format": "{volume}% {icon}",
         "format-bluetooth": "{volume}% {icon}",
@@ -29,7 +29,7 @@
 	},
 	"cpu": {
 		"tooltip": false,
-        "format": "{load} ({usage}) ",
+        "format": "{load} ({usage}) "
 	},
 	"memory": {
 		"tooltip": false,
@@ -37,10 +37,10 @@
 	},
     "disk": {
         "interval": 30,
-        "format": "{used}/{total} ",
+        "format": "{used}/{total} "
     },
     "battery": {
         "format": "battery {}%",
-        "full-at": 80,
+        "full-at": 80
     }
 }
