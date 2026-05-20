@@ -183,8 +183,8 @@ mode "resize" {
 # Enter resize mode
 bindsym $mod+r mode "resize"
 
-bindsym $mod+greater move workspace to output up
-bindsym $mod+less move workspace to output down
+bindsym $mod+greater move workspace to output right
+bindsym $mod+less move workspace to output left
 
 # TODO: could also only use one keyboard shortcut with "toggle"
 bindsym $mod+z output $monitor-left disable
@@ -195,6 +195,8 @@ bindsym $mod+w exec cycle_wallpapers.sh
 # --- ON STARTUP ---
 
 exec waybar
+
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 
 exec set_wallpapers.sh
 

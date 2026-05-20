@@ -41,6 +41,6 @@
     },
     "battery": {
         "format": "battery {}%",
-        "full-at": 80
+        "full-at": 100
     }
 }
