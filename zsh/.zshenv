@@ -9,5 +9,3 @@ eval "$(direnv hook zsh)"
 HISTFILE=~/.histfile
 HISTSIZE=10000
 SAVEHIST=10000
-
-. "$HOME/.cargo/env"
