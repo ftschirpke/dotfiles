@@ -16,8 +16,9 @@ set $swaylock swaylock -c 000000
 set $menu-run rofi -show run
 set $menu-window rofi -show window
 
-set $monitor-main eDP-1
-set $monitor-left HDMI-A-1
+set $monitor-laptop eDP-1
+set $monitor-main "Lenovo Group Limited T27p-30 V5KPF680"
+set $monitor-third "Lenovo Group Limited T27p-30 V5KPF602"
 
 set $ws1 "1"
 set $ws2 "2"
@@ -33,24 +34,17 @@ set $ws10 "10"
 
 # --- OUTPUT ---
 
-output $monitor-main {
-    res 2560x1600
-    pos 0 0
-}
+output $monitor-laptop res 2560x1600 pos 0 0
+output $monitor-main disable
+output $monitor-third disable
 
-output $monitor-left {
-    res 2560x1440
-    pos 0 1600
-}
+focus output $monitor-laptop
 
-focus output $monitor-main
-
-workspace $ws1 output $monitor-main
-workspace $ws2 output $monitor-main
-workspace $ws4 output $monitor-main
-workspace $ws5 output $monitor-main
-
-workspace $ws3 output $monitor-right
+workspace $ws1 output $monitor-laptop
+workspace $ws2 output $monitor-laptop
+workspace $ws3 output $monitor-laptop
+workspace $ws4 output $monitor-laptop
+workspace $ws5 output $monitor-laptop
 
 for_window [class="Alacritty"] move to workspace $ws1
 for_window [class="Brave-browser"] move to workspace $ws2
@@ -58,10 +52,11 @@ for_window [class="discord"] move to workspace $ws3
 for_window [class="Slack"] move to workspace $ws3
 for_window [class="Spotify"] move to workspace $ws3
 for_window [class="obsidian"] move to workspace $ws4
+for_window [class="Obsidian"] move to workspace $ws4
 for_window [class="thunderbird"] move to workspace $ws5
 
-for_window [title="Picture-in-picture"] sticky enable
-for_window [title="Picture-in-picture"] floating toggle
+for_window [title="Picture in picture"] sticky enable
+for_window [title="Picture in picture"] floating toggle
 
 
 # --- INPUT ---
@@ -186,13 +181,14 @@ bindsym $mod+r mode "resize"
 bindsym $mod+greater move workspace to output right
 bindsym $mod+less move workspace to output left
 
-# TODO: could also only use one keyboard shortcut with "toggle"
-bindsym $mod+z output $monitor-left disable
-bindsym $mod+o output $monitor-left enable
+bindsym $mod+z exec $HOME/.config/sway/scripts/monitors_laptop.sh
+bindsym $mod+o exec $HOME/.config/sway/scripts/monitors_work.sh
 
 bindsym $mod+w exec cycle_wallpapers.sh
 
 # --- ON STARTUP ---
+
+exec $HOME/.config/sway/scripts/monitors_autodetect.sh
 
 exec waybar
 
@@ -200,6 +196,6 @@ exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DE
 
 exec set_wallpapers.sh
 
-exec ckb-next
+exec mako
 exec $term
 
