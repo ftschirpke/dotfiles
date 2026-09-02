@@ -178,11 +178,13 @@ mode "resize" {
 # Enter resize mode
 bindsym $mod+r mode "resize"
 
-bindsym $mod+greater move workspace to output right
-bindsym $mod+less move workspace to output left
+bindsym $mod+greater exec $HOME/.config/sway/scripts/move_workspace_output.py next
+bindsym $mod+less exec $HOME/.config/sway/scripts/move_workspace_output.py prev
 
-bindsym $mod+z exec $HOME/.config/sway/scripts/monitors_laptop.sh
-bindsym $mod+o exec $HOME/.config/sway/scripts/monitors_work.sh
+bindsym $mod+z exec $HOME/.config/sway/scripts/monitor_mode.py laptop
+bindsym $mod+o exec $HOME/.config/sway/scripts/monitor_mode.py work
+bindsym $mod+p exec $HOME/.config/sway/scripts/monitor_mode.py no_left
+bindsym $mod+udiaeresis exec $HOME/.config/sway/scripts/monitor_mode.py main_only
 
 bindsym $mod+w exec cycle_wallpapers.sh
 
