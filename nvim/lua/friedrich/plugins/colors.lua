@@ -2,6 +2,7 @@
 
 return {
     "ftschirpke/neovim-ayu",
+    branch = "color-personalization",
     config = function()
         require("ayu").setup({ mirage = false })
         vim.cmd [[colorscheme ayu-dark]]
