@@ -3,47 +3,35 @@
 # output each workspace belongs to. One table per mode instead of a
 # hand-duplicated script per mode, so the "which workspace goes where"
 # mapping can't drift between a preference list and a move list.
-# Usage: monitor_mode.py <work|no_left|main_only|laptop>
+# Usage: monitor_mode.py <work|main_only|laptop>
 import json
 import subprocess
 import sys
 
-MAIN = 'Lenovo Group Limited T27p-30 V5KPF680'
-THIRD = 'Lenovo Group Limited T27p-30 V5KPF602'
+MAIN = 'Lenovo Group Limited T34w-30 V30C2MWR'
 LAPTOP = 'eDP-1'
 
 ALL_WS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
-REST = [1, 2, 6, 7, 8, 9, 0]  # workspaces with no dedicated app/output rule
+REST = [1, 2, 5, 6, 7, 8, 9, 0]  # workspaces with no dedicated app/output rule
 
 MODES = {
     'work': {
         'outputs': {
-            THIRD: ('0 0', '3840x2160'),
-            MAIN: ('3840 0', '3840x2160'),
-            LAPTOP: ('4480 2160', '2560x1600'),
+            MAIN: ('0 0', '3440x1440'),
+            LAPTOP: ('440 1440', '2560x1600'),
         },
-        'workspaces': {**{w: MAIN for w in REST}, 3: LAPTOP, 4: LAPTOP, 5: THIRD},
-    },
-    'no_left': {
-        'outputs': {
-            THIRD: None,
-            MAIN: ('3840 0', '3840x2160'),
-            LAPTOP: ('4480 2160', '2560x1600'),
-        },
-        'workspaces': {**{w: MAIN for w in REST}, 3: LAPTOP, 4: LAPTOP, 5: LAPTOP},
+        'workspaces': {**{w: MAIN for w in REST}, 3: LAPTOP, 4: LAPTOP},
     },
     'main_only': {
         'outputs': {
-            THIRD: None,
             LAPTOP: None,
-            MAIN: ('3840 0', '3840x2160'),
+            MAIN: ('0 0', '3440x1440'),
         },
         'workspaces': {w: MAIN for w in ALL_WS},
     },
     'laptop': {
         'outputs': {
             MAIN: None,
-            THIRD: None,
             LAPTOP: ('0 0', None),
         },
         'workspaces': {w: LAPTOP for w in ALL_WS},

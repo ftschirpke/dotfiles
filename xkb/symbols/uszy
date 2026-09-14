@@ -1,0 +1,12 @@
+// US layout with Z and Y in their German (QWERTZ) positions.
+// Everything else — punctuation, brackets, no dead keys — stays US.
+
+default partial alphanumeric_keys
+xkb_symbols "basic" {
+    include "us(basic)"
+
+    name[Group1] = "English (US, Z/Y swapped)";
+
+    key <AD06> {[	 z,	 Z		]};
+    key <AB01> {[	 y,	 Y		]};
+};

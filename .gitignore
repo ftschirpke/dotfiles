@@ -40,3 +40,6 @@ sway/.wallpaper_index
 
 !rofi
 !rofi/**
+
+!xkb
+!xkb/**

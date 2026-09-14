@@ -1,0 +1,15 @@
+// German layout for an ANSI (US-style) keyboard, which has no ISO
+// "less/greater" key. Standard de(basic) puts <, >, and | exclusively on
+// that missing key (backslash is still reachable via AltGr+ß), so relocate
+// them onto AltGr combos that are barely used otherwise.
+
+default partial alphanumeric_keys
+xkb_symbols "basic" {
+    include "de(basic)"
+
+    name[Group1] = "German (ANSI, </>/| on AltGr)";
+
+    key <AB08> {[      comma,  semicolon,    less,     multiply ]}; // AltGr+, = <
+    key <AB09> {[     period,      colon, greater,     division ]}; // AltGr+. = >
+    key <BKSL> {[ numbersign, apostrophe,        bar, dead_breve ]}; // AltGr+\ = |
+};

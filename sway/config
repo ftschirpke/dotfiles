@@ -17,8 +17,9 @@ set $menu-run rofi -show run
 set $menu-window rofi -show window
 
 set $monitor-laptop eDP-1
-set $monitor-main "Lenovo Group Limited T27p-30 V5KPF680"
-set $monitor-third "Lenovo Group Limited T27p-30 V5KPF602"
+set $monitor-main "Lenovo Group Limited T34w-30 V30C2MWR"
+
+set $kbd-ducky "1241:840:DuckyChannel_International_Co.,_Ltd._Ducky_Keyboard"
 
 set $ws1 "1"
 set $ws2 "2"
@@ -36,7 +37,6 @@ set $ws10 "10"
 
 output $monitor-laptop res 2560x1600 pos 0 0
 output $monitor-main disable
-output $monitor-third disable
 
 focus output $monitor-laptop
 
@@ -63,6 +63,16 @@ for_window [title="Picture in picture"] floating toggle
 
 input "type:keyboard" {
     xkb_layout de
+}
+
+# external US-layout keyboard (work desk)
+# Group 1 (default) is German with </>/| moved off the ISO key this board
+# doesn't have, onto AltGr+,/./\ (custom layout in
+# ~/.config/xkb/symbols/deansi). Group 2 is US with Z/Y in their German
+# positions (custom layout in ~/.config/xkb/symbols/uszy), group 3 is plain
+# US. Cycle with $mod+Shift+y/z.
+input $kbd-ducky {
+    xkb_layout "deansi,uszy,us"
 }
 
 # --- BAR ---
@@ -178,15 +188,21 @@ mode "resize" {
 # Enter resize mode
 bindsym $mod+r mode "resize"
 
-bindsym $mod+greater exec $HOME/.config/sway/scripts/move_workspace_output.py next
-bindsym $mod+less exec $HOME/.config/sway/scripts/move_workspace_output.py prev
+# $mod+greater is the dedicated key on the German keyboard; $mod+Tab is a
+# layout-independent alternative for the US keyboard.
+bindsym $mod+greater exec $HOME/.config/sway/scripts/move_workspace_output.sh
+bindsym $mod+Tab exec $HOME/.config/sway/scripts/move_workspace_output.sh
 
 bindsym $mod+z exec $HOME/.config/sway/scripts/monitor_mode.py laptop
 bindsym $mod+o exec $HOME/.config/sway/scripts/monitor_mode.py work
-bindsym $mod+p exec $HOME/.config/sway/scripts/monitor_mode.py no_left
-bindsym $mod+udiaeresis exec $HOME/.config/sway/scripts/monitor_mode.py main_only
+bindsym $mod+p exec $HOME/.config/sway/scripts/monitor_mode.py main_only
 
 bindsym $mod+w exec cycle_wallpapers.sh
+
+# Cycle the Ducky keyboard through uszy -> us -> de. Both keys are bound so
+# the same two physical keys work whichever layout is currently active.
+bindsym $mod+Shift+y input $kbd-ducky xkb_switch_layout next
+bindsym $mod+Shift+z input $kbd-ducky xkb_switch_layout next
 
 # --- ON STARTUP ---
 
