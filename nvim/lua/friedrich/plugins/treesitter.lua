@@ -1,36 +1,37 @@
-local treesitter_options = {
-    -- A list of parser names, or "all" (the five listed parsers should always be installed)
-    ensure_installed = {
-        "c", "lua", "vim", "vimdoc", "query", "cpp", "python", "rust",
-        "gdscript", "godot_resource", "gdshader",
-    },
-
-    -- Install parsers synchronously (only applied to `ensure_installed`)
-    sync_install = false,
-
-    -- Automatically install missing parsers when entering buffer
-    -- Recommendation: set to false if you don"t have `tree-sitter` CLI installed locally
-    auto_install = true,
-
-    highlight = {
-        enable = true,
-
-        -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
-        -- Set this to `true` if you depend on "syntax" being enabled (like for indentation).
-        -- Using this option may slow down your editor, and you may see some duplicate highlights.
-        -- Instead of true it can also be a list of languages
-        additional_vim_regex_highlighting = false,
-    },
+-- A list of parser names (the five listed parsers should always be installed)
+local ensure_installed = {
+    "c", "lua", "vim", "vimdoc", "query", "cpp", "python", "rust",
+    "gdscript", "godot_resource", "gdshader",
 }
+
+-- The `main` branch of nvim-treesitter (required for Neovim >= 0.12) only manages
+-- parser installation; highlighting is enabled per buffer via `vim.treesitter.start`.
+-- Requires the `tree-sitter-cli` package to compile parsers.
+local treesitter_config = function()
+    local ts = require("nvim-treesitter")
+    ts.install(ensure_installed)
+
+    -- Automatically install missing parsers when entering a buffer, then enable highlighting
+    vim.api.nvim_create_autocmd("FileType", {
+        callback = function(args)
+            local lang = vim.treesitter.language.get_lang(args.match)
+            if not lang or not vim.tbl_contains(ts.get_available(), lang) then
+                return
+            end
+            ts.install(lang):await(function()
+                pcall(vim.treesitter.start, args.buf, lang)
+            end)
+        end,
+    })
+end
 
 return {
     {
         "nvim-treesitter/nvim-treesitter",
-        branch = "master",
+        branch = "main",
+        lazy = false,
         build = ":TSUpdate",
-        config = function()
-            require("nvim-treesitter.configs").setup(treesitter_options)
-        end,
+        config = treesitter_config,
     },
     {
         "nvim-treesitter/nvim-treesitter-context",
