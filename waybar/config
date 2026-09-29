@@ -23,9 +23,9 @@
     },
     "clock#short":{},
 	"network": {
-		"tooltip": false,
-		"format-wifi": " {essid} {ipaddr}",
-		"format-ethernet": "󰈁 {ipaddr}"
+		"format-wifi": " ",
+		"format-ethernet": "󰈁",
+		"tooltip-format": "{essid} {ipaddr}"
 	},
 	"cpu": {
 		"tooltip": false,

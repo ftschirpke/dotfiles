@@ -204,6 +204,9 @@ bindsym $mod+w exec cycle_wallpapers.sh
 bindsym $mod+Shift+y input $kbd-ducky xkb_switch_layout next
 bindsym $mod+Shift+z input $kbd-ducky xkb_switch_layout next
 
+# Presentation toggle: hide waybar and mute notifications
+bindsym $mod+b exec "pkill -SIGUSR1 waybar; makoctl mode -t do-not-disturb"
+
 # --- ON STARTUP ---
 
 exec $HOME/.config/sway/scripts/monitors_autodetect.sh
