@@ -40,7 +40,7 @@ output $monitor-right {
 }
 
 output $monitor-main {
-    pos 0 1400 
+    pos 0 840
     res 3840x2160
 }
 
@@ -201,7 +201,6 @@ exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DE
 
 exec set_wallpapers.sh
 
-exec ckb-next
 exec $term
 
 
