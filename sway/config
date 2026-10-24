@@ -59,10 +59,11 @@ for_window [class="discord"] move to workspace $ws3
 for_window [class="Slack"] move to workspace $ws3
 for_window [class="Spotify"] move to workspace $ws3
 for_window [class="obsidian"] move to workspace $ws4
+for_window [class="Obsidian"] move to workspace $ws4
 for_window [class="thunderbird"] move to workspace $ws5
 
-for_window [title="Picture-in-picture"] sticky enable
-for_window [title="Picture-in-picture"] floating toggle
+for_window [title="Picture in picture"] sticky enable
+for_window [title="Picture in picture"] floating toggle
 
 
 # --- INPUT ---
@@ -184,14 +185,19 @@ mode "resize" {
 # Enter resize mode
 bindsym $mod+r mode "resize"
 
-bindsym $mod+greater move workspace to output right
-bindsym $mod+less move workspace to output left
-
 # TODO: could also only use one keyboard shortcut with "toggle"
 bindsym $mod+z output $monitor-right disable
 bindsym $mod+o output $monitor-right enable
 
+# $mod+greater is the dedicated key on the German keyboard; $mod+Tab is a
+# layout-independent alternative for the US keyboard.
+bindsym $mod+greater exec $HOME/.config/sway/scripts/move_workspace_output.sh
+bindsym $mod+Tab exec $HOME/.config/sway/scripts/move_workspace_output.sh
+
 bindsym $mod+w exec cycle_wallpapers.sh
+
+# Presentation toggle: hide waybar and mute notifications
+bindsym $mod+b exec "pkill -SIGUSR1 waybar; makoctl mode -t do-not-disturb"
 
 # --- ON STARTUP ---
 
@@ -201,6 +207,7 @@ exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DE
 
 exec set_wallpapers.sh
 
+exec mako
 exec $term
 
 

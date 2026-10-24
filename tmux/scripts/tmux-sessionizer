@@ -43,7 +43,8 @@ start() {
 
 start_or_attach() {
     selected=$1
-    selected_name=$(basename $(dirname $selected) | tr . _)/$(basename $selected | tr . _)
+    # path relative to $HOME with parent dirs shortened to their first letter (a/b/c/d -> a/b/c/d, projects/foo/bar -> p/f/bar)
+    selected_name=$(realpath -s --relative-to="$HOME" "$selected" | sed -E 's#(\.?[^/])[^/]*/#\1/#g' | tr . _)
     echo "start or attach: $selected"
     if tmux has-session -t=$selected_name 2> /dev/null; then
         tmux_switch_session $selected_name
@@ -68,7 +69,7 @@ sessions_dir=~/.config/tmux/sessions
 
 selected=$( { 
 fd --type f --base-directory $sessions_dir
-fd --type d --base-directory $HOME --search-path $XDG_CONFIG_HOME --search-path ~/projects --search-path ~/studium --search-path ~/shk-leser
+fd --type d --base-directory $HOME --search-path $XDG_CONFIG_HOME --search-path ~/projects --search-path ~/studium --search-path ~/shk-leser --search-path ~/life --search-path ~/phd
 } | fzf -q "$selected" )
 
 if [[ -z "$selected" ]]; then

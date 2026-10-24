@@ -1,0 +1,17 @@
+# Global settings: Put popups dead center and make them larger
+anchor=center
+width=600
+height=400
+font=monospace 15
+default-timeout=0
+
+# Style specifically for CRITICAL notifications (like your 20% battery warning)
+[urgency=critical]
+background-color=#900000FF
+text-color=#FFFFFFFF
+border-color=#FF0000FF
+border-size=3
+
+# Presentation mode (toggled with $mod+b in sway): hide all popups
+[mode=do-not-disturb]
+invisible=1
