@@ -1,4 +1,9 @@
 {
+  "sandbox": {
+    "enabled": true,
+    "autoAllowBashIfSandboxed": true,
+    "allowUnsandboxedCommands": false
+  },
   "permissions": {
     "allow": [
       "Edit",
@@ -25,7 +30,6 @@
     }
   },
   "theme": "dark",
-  "editorMode": "vim",
   "preferredNotifChannel": "auto",
   "autoCompactEnabled": true,
   "idleCompaction": true

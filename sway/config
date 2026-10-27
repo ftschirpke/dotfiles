@@ -46,14 +46,18 @@ workspace $ws3 output $monitor-laptop
 workspace $ws4 output $monitor-laptop
 workspace $ws5 output $monitor-laptop
 
-for_window [class="Alacritty"] move to workspace $ws1
-for_window [class="Brave-browser"] move to workspace $ws2
-for_window [class="discord"] move to workspace $ws3
-for_window [class="Slack"] move to workspace $ws3
-for_window [class="Spotify"] move to workspace $ws3
-for_window [class="obsidian"] move to workspace $ws4
-for_window [class="Obsidian"] move to workspace $ws4
-for_window [class="thunderbird"] move to workspace $ws5
+# app placement; scripts/work_setup.sh launches the whole set.
+# Calendar runs as a brave --app window, whose instance differs from
+# regular brave windows, so it can go to a different workspace.
+assign [app_id="Alacritty"] workspace $ws1
+assign [app_id="brave-browser"] workspace $ws2
+assign [class="discord"] workspace $ws3
+assign [class="Spotify"] workspace $ws3
+assign [app_id="md.obsidian.Obsidian"] workspace $ws4
+assign [app_id="brave-calendar.google.com__-Default"] workspace $ws4
+assign [app_id="slack"] workspace $ws5
+assign [app_id="org.mozilla.Thunderbird"] workspace $ws5
+assign [app_id="Zotero"] workspace $ws7
 
 for_window [title="Picture in picture"] sticky enable
 for_window [title="Picture in picture"] floating toggle
@@ -198,6 +202,7 @@ bindsym $mod+o exec $HOME/.config/sway/scripts/monitor_mode.py work
 bindsym $mod+p exec $HOME/.config/sway/scripts/monitor_mode.py main_only
 
 bindsym $mod+w exec cycle_wallpapers.sh
+bindsym $mod+Shift+w exec $HOME/.config/sway/scripts/work_setup.sh
 
 # Cycle the Ducky keyboard through uszy -> us -> de. Both keys are bound so
 # the same two physical keys work whichever layout is currently active.
